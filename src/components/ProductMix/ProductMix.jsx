@@ -34,8 +34,8 @@ const ProductMix = () => {
   ];
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-12">
+      <div className="max-w-container mx-auto md:px-0 px-4">
         <h1 className="text-3xl md:text-4xl font-josefin text-primary font-bold text-center mb-8">
           Latest Products
         </h1>

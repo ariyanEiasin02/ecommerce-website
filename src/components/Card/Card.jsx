@@ -23,7 +23,7 @@ const Card = ({ imageMix,title, category,fixedNow,fixedOld }) => {
         </div>
         </div>
     </div>
-    <div className="flex justify-between pt-2">
+    <div className="flex justify-between pt-2 pr-4">
     <h3 className="text-base font-josefin text-primary font-semibold">{title}</h3>
     <p className='text-base font-josefin text-primary font-semibold'>${fixedNow} <span className='text-xs text-[#FB2448] line-through'>${fixedOld}</span></p>
     </div>
