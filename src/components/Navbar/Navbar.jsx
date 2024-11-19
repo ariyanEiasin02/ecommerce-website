@@ -42,7 +42,7 @@ const Navbar = () => {
                     </div>
                     <div
                         className={`md:hidden flex flex-col items-start bg-white shadow-lg absolute left-0 w-full px-4 py-4 gap-y-4 transition-all z-10 ${
-                            menuShow ? 'top-[60px] duration-700 ease-in-out' : 'top-[60px] left-[-400px] duration-700 ease-in-out'
+                            menuShow ? 'top-[60px] duration-700 ease-in-out' : 'top-[60px] left-[-800px] duration-700 ease-in-out'
                         }`}
                     >
                         <ul className="flex flex-col gap-y-4 font-lato font-normal text-base text-primary w-full text-center">

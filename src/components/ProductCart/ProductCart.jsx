@@ -47,7 +47,7 @@ const ProductCart = () => {
                                     <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] py-8 px-4 relative">
                                         <img src={product.img} alt={product.name} className="w-[178px] h-[178px] mx-auto" />
                                         <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 flex gap-2">
-                                            <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center group">
+                                            <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                                 <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
                                             </div>
                                             <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
