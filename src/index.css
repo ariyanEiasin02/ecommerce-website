@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* slick-dots styling custom */
+.slick-dots{
+    bottom: -40px !important;
+}
+.slick-dots li {
+    margin: 0px 8px !important;
+  }
+  
+  .slick-dots li button {
+    padding: 2px !important;
+    width: 25px !important;
+    height: 0px !important;
+    background-color:#FEBAD7 !important;
+    border-radius: 10px !important;
+  }
+  
+  .slick-dots li button:hover {
+    background-color:#FB2E86 !important;
+  }
+  
+  .slick-dots li.slick-active button {
+    background-color: #FB2E86 !important;
+    border-color: #FEBAD7 !important; /* Active border color */
+  }
+  .slick-dots li button::before{
+    font-size: 0px !important;
+  }
+  
