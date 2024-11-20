@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { ImZoomIn } from "react-icons/im";
 import { FaRegHeart } from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-import product1 from '../../assets/image1.png';
-import product2 from '../../assets/image2.png';
-import product3 from '../../assets/image3.png';
-import product4 from '../../assets/image4.png';
-
-const products = [
-  { id: 1, name: "Cantilever chair 1", code: 'Y523201', price: 25, img: product1 },
-  { id: 2, name: "Cantilever chair 2", code: 'Y523202', price: 30, img: product2 },
-  { id: 3, name: "Cantilever chair 3", code: 'Y523203', price: 40, img: product3 },
-  { id: 4, name: "Cantilever chair 4", code: 'Y523204', price: 50, img: product4 },
-  { id: 5, name: "Cantilever chair 5", code: 'Y523205', price: 60, img: product1 },
-  { id: 6, name: "Cantilever chair 6", code: 'Y523206', price: 80, img: product4 },
-];
+import { apiData } from "../ContextApi/ContextApi";
 
 const ProductCart = () => {
+  let data = useContext(apiData)
+  const PreviousArrow = ({ onClick }) => {
+    return (
+      <button onClick={onClick} className='absolute -bottom-12 left-[43%] py-4 px-4 rounded-md bg-secondCommon font-poppins font-bold text-2xl text-white'><IoIosArrowBack /></button>
+    );
+  };
+  
+  const NextArrow = ({ onClick }) => {
+    return (
+      <button onClick={onClick} className='absolute -bottom-12 right-[43%] py-4 px-4 rounded-md bg-secondCommon font-poppins font-bold text-2xl text-white'><IoIosArrowForward /></button>
+    );
+  };
+  
   const settings = {
-    dots: true, 
+    dots: false, 
     infinite: true, 
     autoplay: true, 
     autoplaySpeed: 3000,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1, 
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PreviousArrow />, 
     responsive: [
       {
         breakpoint: 1024,
@@ -56,16 +60,16 @@ const ProductCart = () => {
       <div className="max-w-container mx-auto">
         <h1 className="text-4xl text-primary font-josefin font-bold text-center mb-3">Featured Products</h1>
         <Slider {...settings}>
-          {products.map((product) => (
-            <div key={product.id} className="p-4 overflow-x-hidden">
-              <div className="border rounded-lg shadow-md flex flex-col group">
-                <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] py-8 px-4 relative">
+          {data.map((product) => (
+            <div key={product.id} className="!w-[95%]  overflow-x-hidden shadow-xl !bg-white">
+              <div className="border rounded-lg shadow-md flex flex-col group overflow-hidden">
+                <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] py-12 px-4 relative overflow-hidden">
                   <img
-                    src={product.img}
-                    alt={product.name}
-                    className="w-[178px] h-[178px] mx-auto"
+                    src={product.thumbnail}
+                    alt={product.title}
+                    className="h-[180px] w-auto mx-auto"
                   />
-                  <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 flex gap-2">
+                  <div className="absolute top-2 -left-32 group-hover:left-2 duration-700 ease-in-out flex gap-2">
                     <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                       <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
@@ -76,10 +80,15 @@ const ProductCart = () => {
                       <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
                   </div>
+                  <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-2 duration-700 ease-in-out">
+                  <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
+                  View Details
+                  </button>
+                  </div>
                 </div>
                 <div className="bg-white group-hover:bg-[#00009D] text-center py-4">
                   <h3 className="text-lg font-lato font-bold text-secondCommon group-hover:text-white mt-4">
-                    {product.name}
+                    {product.title}
                   </h3>
                   <div className="flex justify-center gap-2 py-2">
                     <span className="w-4 h-1 bg-[#05E6B7] rounded-xl"></span>
@@ -87,7 +96,7 @@ const ProductCart = () => {
                     <span className="w-4 h-1 bg-[#00009D] group-hover:bg-[#FFEAC1] rounded-xl"></span>
                   </div>
                   <p className="text-[#00009D] font-josefin text-sm group-hover:text-white">
-                    Code - {product.code}
+                    Code - {product.sku}
                   </p>
                   <p className="py-2 text-[#00009D] font-josefin text-sm group-hover:text-white">
                     ${product.price}
