@@ -7,8 +7,8 @@ import { ContextApi } from './components/ContextApi/ContextApi.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <ContextApi>
+    <ContextApi>
       <App />
-    </ContextApi>   
+    </ContextApi>
   </StrictMode>,
 )

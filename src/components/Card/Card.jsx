@@ -3,14 +3,14 @@ import { FaRegHeart } from 'react-icons/fa'
 import { FiShoppingCart } from 'react-icons/fi'
 import { ImZoomIn } from 'react-icons/im'
 import sale from '../../assets/sale.png'
-const Card = ({ imageMix,title, category,fixedNow,fixedOld }) => {
+const Card = ({ imageMix,title, categoryName,fixedNow,fixedOld }) => {
   return (
         <div
-    className={`mix ${category}  text-primary group`}
+    className={`mix ${categoryName}  text-primary group`}
   >
     <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] flex justify-center items-center p-4 relative group w-auto h-[270px]">
         <div className="">
-        <img src={imageMix} alt="" />
+        <img src={imageMix} alt={title} className='h-[170px] w-auto'  />
         <div className="absolute bottom-6 left-4 opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
             <ul>
                 <li className='my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center'><FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" /></li>

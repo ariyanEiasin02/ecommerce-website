@@ -1,15 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import mixitup from "mixitup";
 import Card from "../Card/Card";
-import imageMix1 from "../../assets/imageMix1.png";
-import imageMix2 from "../../assets/imageMix2.png";
-import imageMix3 from "../../assets/imageMix3.png";
-import imageMix4 from "../../assets/imageMix4.png";
-import imageMix5 from "../../assets/imageMix5.png";
-import imageMix6 from "../../assets/imageMix6.png";
+import { apiData } from "../ContextApi/ContextApi";
 
 const ProductMix = () => {
   const containerRef = useRef(null);
+  const data = useContext(apiData)
 
   useEffect(() => {
     if (containerRef.current) {
@@ -23,15 +19,6 @@ const ProductMix = () => {
       });
     }
   }, []);
-
-  const cards = [
-    { imageMix: imageMix1, title: "Comfort Handy Craft 1", category: "category-a", fixedNow: "45", fixedOld: "65" },
-    { imageMix: imageMix2, title: "Comfort Handy Craft 2", category: "category-b", fixedNow: "55", fixedOld: "75" },
-    { imageMix: imageMix3, title: "Comfort Handy Craft 3", category: "category-c", fixedNow: "35", fixedOld: "60" },
-    { imageMix: imageMix4, title: "Comfort Handy Craft 4", category: "category-d", fixedNow: "65", fixedOld: "85" },
-    { imageMix: imageMix5, title: "Comfort Handy Craft 5", category: "category-e", fixedNow: "65", fixedOld: "95" },
-    { imageMix: imageMix6, title: "Comfort Handy Craft 6", category: "category-f", fixedNow: "50", fixedOld: "69" },
-  ];
 
   return (
     <section className="py-12">
@@ -48,19 +35,19 @@ const ProductMix = () => {
           </button>
           <button
             className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline"
-            data-filter=".category-a, .category-f"
+            data-filter=".beauty"
           >
             Best Seller
           </button>
           <button
             className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline"
-            data-filter=".category-b, .category-d"
+            data-filter=".fragrances"
           >
             Featured
           </button>
           <button
             className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline"
-            data-filter=".category-c, .category-a, .category-f"
+            data-filter=".furniture, .groceries"
           >
             Special Offer
           </button>
@@ -69,14 +56,14 @@ const ProductMix = () => {
           ref={containerRef}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
         >
-          {cards.map((card, index) => (
+          {data.map((card, index) => (
             <Card
               key={index}
-              imageMix={card.imageMix}
+              imageMix={card.thumbnail}
               title={card.title}
-              category={card.category}
-              fixedNow={card.fixedNow}
-              fixedOld={card.fixedOld}
+              categoryName={card.category}
+              fixedNow={card.price}
+              fixedOld={card.price * 2}
             />
           ))}
         </div>

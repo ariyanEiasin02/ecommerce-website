@@ -11,17 +11,29 @@ import { apiData } from "../ContextApi/ContextApi";
 
 const ProductCart = () => {
   let data = useContext(apiData)
+  
   const PreviousArrow = ({ onClick }) => {
     return (
-      <button onClick={onClick} className='absolute -bottom-12 left-[43%] py-4 px-4 rounded-md bg-secondCommon font-poppins font-bold text-2xl text-white'><IoIosArrowBack /></button>
+      <button
+        onClick={onClick}
+        className="absolute -bottom-10 left-[35%] md:left-[43%] py-3 px-3 sm:py-4 sm:px-4 rounded-md bg-secondCommon font-poppins font-bold text-lg sm:text-2xl text-white"
+      >
+        <IoIosArrowBack />
+      </button>
     );
   };
   
   const NextArrow = ({ onClick }) => {
     return (
-      <button onClick={onClick} className='absolute -bottom-12 right-[43%] py-4 px-4 rounded-md bg-secondCommon font-poppins font-bold text-2xl text-white'><IoIosArrowForward /></button>
+      <button
+        onClick={onClick}
+        className="absolute -bottom-10 right-[35%] md:right-[43%] py-3 px-3 sm:py-4 sm:px-4 rounded-md bg-secondCommon font-poppins font-bold text-lg sm:text-2xl text-white"
+      >
+        <IoIosArrowForward />
+      </button>
     );
   };
+  
   
   const settings = {
     dots: false, 
@@ -61,7 +73,7 @@ const ProductCart = () => {
         <h1 className="text-4xl text-primary font-josefin font-bold text-center mb-3">Featured Products</h1>
         <Slider {...settings}>
           {data.map((product) => (
-            <div key={product.id} className="!w-[95%]  overflow-x-hidden shadow-xl !bg-white">
+            <div key={product.id} className="lg:px-0 px-4 w-fill lg:!w-[95%] mt-5 overflow-x-hidden lg:shadow-xl !bg-white">
               <div className="border rounded-lg shadow-md flex flex-col group overflow-hidden">
                 <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] py-12 px-4 relative overflow-hidden">
                   <img
@@ -95,10 +107,10 @@ const ProductCart = () => {
                     <span className="w-4 h-1 bg-secondCommon rounded-xl"></span>
                     <span className="w-4 h-1 bg-[#00009D] group-hover:bg-[#FFEAC1] rounded-xl"></span>
                   </div>
-                  <p className="text-[#00009D] font-josefin text-sm group-hover:text-white">
+                  <p className="py-1 text-[#00009D] font-josefin text-sm group-hover:text-white">
                     Code - {product.sku}
                   </p>
-                  <p className="py-2 text-[#00009D] font-josefin text-sm group-hover:text-white">
+                  <p className="text-[#00009D] font-josefin text-sm group-hover:text-white">
                     ${product.price}
                   </p>
                 </div>
