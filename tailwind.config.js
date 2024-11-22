@@ -19,6 +19,9 @@ export default {
       colors:{
         'primary' : '#0D0E43',
         'secondCommon' : '#FB2E86'
+      },
+      boxShadow:{
+        'shadow' : "0px 8px 0px 0px #2F1AC4"
       }
     },
   },
