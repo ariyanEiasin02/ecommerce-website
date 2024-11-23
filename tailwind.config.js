@@ -23,9 +23,6 @@ export default {
       boxShadow:{
         'shadow' : "0px 8px 0px 0px #2F1AC4"
       },
-        backgroundImage: {
-          'newsLatter': "url('./src/assets/newslater.png')",
-        },
     },
   },
   plugins: [],
