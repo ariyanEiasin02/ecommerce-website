@@ -68,7 +68,7 @@ const Categories = () => {
                         fillerData.map((item) => (
                             <div className="w-full lg:!w-[95%] group px-4 lg:px-0">
                                 <div className="flex justify-center items-center w-[270px] h-[270px] rounded-full bg-[#F6F7FB] group-hover:shadow-shadow duration-700 ease-in-out relative overflow-hidden mx-auto">
-                                    <img className='w-[178px] h-auto' src={item.thumbnail} alt="" />
+                                    <img className='w-[178px] h-auto' src={item.thumbnail} alt={item.title} />
                                     <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-3 duration-700 ease-in-out">
                                         <button className="bg-[#08D15F] rounded-md py-3 px-5 font-josefin text-white font-bold text-xs">
                                             View Shop
@@ -76,8 +76,8 @@ const Categories = () => {
                                     </div>
                                 </div>
                                 <div className="text-center mt-3">
-                                    <h3 className='font-josefin font-normal text-primary text-xl'>Mini LCW Chair</h3>
-                                    <p className='font-josefin font-normal text-primary text-base'>$56.00</p>
+                                    <h3 className='font-josefin font-normal text-primary text-xl'>{item.title}</h3>
+                                    <p className='font-josefin font-normal text-primary text-base'>${item.price}</p>
                                 </div>
                             </div>
                         ))
