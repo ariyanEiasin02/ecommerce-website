@@ -5,7 +5,8 @@ import { apiData } from "../ContextApi/ContextApi";
 
 const ProductMix = () => {
   const containerRef = useRef(null);
-  const data = useContext(apiData)
+  const data = useContext(apiData);
+  const filterData = data.filter((item)=> item.id >= 6 && item.id <= 11)
 
   useEffect(() => {
     if (containerRef.current) {
@@ -56,7 +57,7 @@ const ProductMix = () => {
           ref={containerRef}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
         >
-          {data.map((card, index) => (
+          {filterData.map((card, index) => (
             <Card
               key={index}
               imageMix={card.thumbnail}

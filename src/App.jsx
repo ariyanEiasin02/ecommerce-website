@@ -12,6 +12,7 @@ import Home from './pages/Home/Home';
 import Shop from './pages/Shop/Shop';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import FooterLast from './components/FooterLast/FooterLast';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route path="/shop/*" element={<Shop />} />
       </Routes>
       <Footer/>
+      <FooterLast/>
     </BrowserRouter>
     </>
   )
