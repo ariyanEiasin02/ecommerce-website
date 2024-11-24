@@ -8,6 +8,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import { apiData } from "../ContextApi/ContextApi";
+import { Link } from "react-router-dom";
 
 const ProductCart = () => {
   let data = useContext(apiData)
@@ -93,9 +94,11 @@ const ProductCart = () => {
                     </div>
                   </div>
                   <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-2 duration-700 ease-in-out">
+                  <Link to="/Home/ShopGrid">
                   <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
                   View Details
                   </button>
+                  </Link>
                   </div>
                 </div>
                 <div className="bg-white group-hover:bg-[#00009D] text-center py-4">

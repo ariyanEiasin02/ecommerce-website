@@ -6,7 +6,7 @@ import img4 from '../../assets/company4.png'
 import img5 from '../../assets/comapny5.png'
 const Company = () => {
   return (
-    <section className='mt-6'>
+    <section className=''>
         <div className="max-w-container mx-auto px-4 md:px-0">
             <div className="flex flex-wrap justify-between items-center">
                 <div className="w-[48%] lg:w-[18%]">
