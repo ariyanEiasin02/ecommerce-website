@@ -20,7 +20,7 @@ const Navbar = () => {
                                 <li className="hover:text-secondCommon cursor-pointer">Pages</li>
                                 <li className="hover:text-secondCommon cursor-pointer">Products</li>
                                 <li className="hover:text-secondCommon cursor-pointer">Blog</li>
-                               <Link to='/Home/ShopList'>
+                               <Link to='/Home/ShopGrid'>
                                <li className="hover:text-secondCommon cursor-pointer">Shop</li>
                                </Link>
                                 <li className="hover:text-secondCommon cursor-pointer">Contact</li>
@@ -57,7 +57,7 @@ const Navbar = () => {
                             <li className="hover:text-secondCommon cursor-pointer">Pages</li>
                             <li className="hover:text-secondCommon cursor-pointer">Products</li>
                             <li className="hover:text-secondCommon cursor-pointer">Blog</li>
-                            <Link to='/Home/ShopList'>
+                            <Link to='/Home/ShopGrid'>
                             <li className="hover:text-secondCommon cursor-pointer">Shop</li>
                             </Link>
                             <li className="hover:text-secondCommon cursor-pointer">Contact</li>
