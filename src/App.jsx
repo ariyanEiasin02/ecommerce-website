@@ -14,6 +14,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import FooterLast from './components/FooterLast/FooterLast';
 import ShopGrid from './pages/ShopGrid/ShopGrid';
+import ShopList from './pages/ShopList/ShopList';
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
+        <Route path="/Home/ShopList*" element={<ShopList />} />
       </Routes>
       <Footer/>
       <FooterLast/>

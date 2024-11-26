@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import img1 from '../../assets/image1.png'
 import { apiData } from '../ContextApi/ContextApi'
 import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 const Categories = () => {
     let data = useContext(apiData);
+       
     let fillerData = data.filter((item) => item.id >= 15 && item.id <= 30)
 
     const PreviousArrow = ({ onClick }) => {

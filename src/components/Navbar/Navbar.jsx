@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
 import { IoClose, IoMenu, IoSearch } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuShow, setMenuShow] = useState(false);
@@ -13,11 +14,15 @@ const Navbar = () => {
                         <div className="flex items-center gap-x-4 md:gap-x-24">
                             <img src={logo} alt="Logo" className="" />
                             <ul className={`hidden md:flex gap-x-6 font-lato font-normal text-base text-primary`}>
+                                <Link to='/'>
                                 <li className="hover:text-secondCommon cursor-pointer">Home</li>
+                                </Link>
                                 <li className="hover:text-secondCommon cursor-pointer">Pages</li>
                                 <li className="hover:text-secondCommon cursor-pointer">Products</li>
                                 <li className="hover:text-secondCommon cursor-pointer">Blog</li>
-                                <li className="hover:text-secondCommon cursor-pointer">Shop</li>
+                               <Link to='/Home/ShopList'>
+                               <li className="hover:text-secondCommon cursor-pointer">Shop</li>
+                               </Link>
                                 <li className="hover:text-secondCommon cursor-pointer">Contact</li>
                             </ul>
                         </div>
@@ -46,11 +51,15 @@ const Navbar = () => {
                         }`}
                     >
                         <ul className="flex flex-col gap-y-4 font-lato font-normal text-base text-primary w-full text-center">
+                            <Link to="/">
                             <li className="hover:text-secondCommon cursor-pointer">Home</li>
+                            </Link>
                             <li className="hover:text-secondCommon cursor-pointer">Pages</li>
                             <li className="hover:text-secondCommon cursor-pointer">Products</li>
                             <li className="hover:text-secondCommon cursor-pointer">Blog</li>
+                            <Link to='/Home/ShopList'>
                             <li className="hover:text-secondCommon cursor-pointer">Shop</li>
+                            </Link>
                             <li className="hover:text-secondCommon cursor-pointer">Contact</li>
                         </ul>
                         <div className="flex items-center justify-center mx-auto mt-2">

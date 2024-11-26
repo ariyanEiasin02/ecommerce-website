@@ -5,7 +5,7 @@ import Company from '../../components/Company/Company'
 const ShopGrid = () => {
   return (
     <>
-        <CommonBanner commonHeading='Product Details'/>
+        <CommonBanner commonHeading='Product Details' shopItem='Shop Grid Default'/>
         <EcommerceItem/>
         <Company/>
     </>

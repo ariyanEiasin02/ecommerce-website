@@ -3,7 +3,9 @@ import { FaBorderAll, FaListUl } from 'react-icons/fa'
 
 const ShortItem = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6">
+    <section className='py-6'>
+      <div className="max-w-container mx-auto">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6">
           <div className="mb-4 lg:mb-0">
             <h3 className="font-josefin text-primary text-[22px] font-bold">Ecommerce Accessories & Fashion Items</h3>
             <p className="font-lato font-normal text-xs text-[#8A8FB9]">About 9,620 results (0.62 seconds)</p>
@@ -56,6 +58,8 @@ const ShortItem = () => {
             </div>
           </div>
         </div>
+      </div>
+    </section>
   )
 }
 
