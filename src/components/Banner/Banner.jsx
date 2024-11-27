@@ -2,6 +2,7 @@ import React from 'react'
 import banner from '../../assets/banner.png'
 import bannerImg from '../../assets/bannerImg.png'
 import Slider from 'react-slick';
+import {Link} from 'react-router-dom'
 const Banner = () => {
     const settings = {
         dots: true,
@@ -38,7 +39,9 @@ const Banner = () => {
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
                                     </p>
                                     <button className="bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
+                                    <Link to="/Home/ShopGrid">
                                         Shop Now
+                                    </Link>
                                     </button>
                                 </div>
                             </div>
