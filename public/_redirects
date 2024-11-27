@@ -1,2 +1,9 @@
-/source-path  /destination-path  [status-code]
+[[redirects]]
+from = "/old-page"
+to = "/new-page"
+status = 301
 
+[[redirects]]
+from = "/a"
+to = "/z"
+status = 200
