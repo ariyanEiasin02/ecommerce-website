@@ -16,6 +16,7 @@ import FooterLast from './components/FooterLast/FooterLast';
 import ShopGrid from './pages/ShopGrid/ShopGrid';
 import ShopList from './pages/ShopList/ShopList';
 import ErrorPages from './pages/ErrorPages/ErrorPages';
+import Contact from './pages/Contact/Contact';
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
         <Route path="/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
         <Route path="/Home/ShopList*" element={<ShopList />} />
+        <Route path="/Home/Contact*" element={<Contact />} />
         <Route path="*" element={<ErrorPages/>} />
       </Routes>
       <Footer/>

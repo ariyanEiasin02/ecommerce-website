@@ -23,7 +23,9 @@ const Navbar = () => {
                                <Link to='/Home/ShopGrid'>
                                <li className="hover:text-secondCommon cursor-pointer">Shop</li>
                                </Link>
+                               <Link to="/Home/Contact">
                                 <li className="hover:text-secondCommon cursor-pointer">Contact</li>
+                               </Link>
                             </ul>
                         </div>
                         <div className="flex items-center gap-x-4">
@@ -60,7 +62,9 @@ const Navbar = () => {
                             <Link to='/Home/ShopGrid'>
                             <li className="hover:text-secondCommon cursor-pointer">Shop</li>
                             </Link>
+                            <Link to="/Home/Contact">
                             <li className="hover:text-secondCommon cursor-pointer">Contact</li>
+                            </Link>
                         </ul>
                         <div className="flex items-center justify-center mx-auto mt-2">
                                 <input
