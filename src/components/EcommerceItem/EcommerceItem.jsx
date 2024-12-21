@@ -44,7 +44,7 @@ const EcommerceItem = () => {
     let filterPriceproduct = shopApiProduct.filter((item) => item.price > value.low && item.price <= value.high)
     setPriceItem(filterPriceproduct)
     setBrandItem([])
-    
+    setCategoryItem([])
   }
   
   // pageinetion...................................
