@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -38,10 +39,12 @@ const Header = () => {
             <FaHeart className="mr-1" />
             <span>Wishlist</span>
           </button>
+          <Link to="/Home/shop/">
           <button className="flex text-sm items-center text-[#F1F1F1] font-josefin font-semibold">
             <FaShoppingCart className="mr-1" />
             <span>Shop</span>
           </button>
+          </Link>
         </div>
       </div>
     </header>

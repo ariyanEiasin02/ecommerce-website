@@ -1,10 +1,13 @@
 import React from 'react'
+import CommonBanner from '../../components/CommonBanner/CommonBanner'
+import ProductShop from '../../components/ProductShop/ProductShop'
 
 const Shop = () => {
   return (
-    <div>
-        <h2>Hello Shop</h2>
-    </div>
+    <>
+      <CommonBanner commonHeading='Shopping Curt' shopItem='Shopping Curt'/>
+      <ProductShop/>
+    </>
   )
 }
 
