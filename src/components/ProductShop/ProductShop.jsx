@@ -1,6 +1,10 @@
 import React from 'react'
+import { IoMdClose } from 'react-icons/io';
+import { useSelector } from 'react-redux'
 
 const ProductShop = () => {
+    const cartData = useSelector((state)=> state.cartSlice.cartItems)
+
     return (
         <>
             <section className='py-16 bg-white'>
@@ -13,60 +17,42 @@ const ProductShop = () => {
                                 <h3 className="font-josefin font-semibold text-[20px] text-primary text-center">Quantity</h3>
                                 <h3 className="font-josefin font-semibold text-[20px] text-primary text-right">Total</h3>
                             </div>
-                            <div className="grid grid-cols-4 gap-4 items-center border-b pb-4">
+                            {
+                                cartData.map((item)=>(
+                                    <div className="mt-5 grid grid-cols-4 gap-4 items-center border-b pb-4">
                                 <div className="flex items-start gap-3">
-                                    <div className="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md"></div>
+                                    <div className="relative flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md">
+                                        <img src={item.thumbnail} alt="" />
+                                        <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[#000000]  text-white flex items-center justify-center p-[2px]">
+                                        <IoMdClose />
+                                        </div>
+                                    </div>
                                     <div>
                                         <h4 className="text-[#000000] font-josefin text-base font-medium w-48" title="Ut diam consequat">
-                                            Ut diam consequat
+                                            {item.title}
                                         </h4>
                                         <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Color: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">Brown</span></p>
                                         <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Size: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">XL</span></p>
                                     </div>
                                 </div>
                                 <div className="text-base text-primary text-center font-josefin font-normal">
-                                    $32.00
+                                    ${item.price}
                                 </div>
                                 <div className="text-center">
                                     <input
                                         type="number"
                                         className="w-16
                                             border-2 outline-none border-gray-300 rounded-md text-center"
-                                        value="1"
+                                        value={item.qty}
                                         min="1"
                                     />
                                 </div>
                                 <div className="text-base text-primary text-right font-josefin font-normal">
-                                    $239.00
+                                    ${(item.price)*(item.qty)}
                                 </div>
                             </div>
-                            <div className="mt-5 grid grid-cols-4 gap-4 items-center border-b pb-4">
-                                <div className="flex items-start gap-3">
-                                    <div className="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md"></div>
-                                    <div>
-                                        <h4 className="text-[#000000] font-josefin text-base font-medium w-48" title="Ut diam consequat">
-                                            Ut diam consequat
-                                        </h4>
-                                        <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Color: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">Brown</span></p>
-                                        <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Size: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">XL</span></p>
-                                    </div>
-                                </div>
-                                <div className="text-base text-primary text-center font-josefin font-normal">
-                                    $32.00
-                                </div>
-                                <div className="text-center">
-                                    <input
-                                        type="number"
-                                        className="w-16
-                                            border-2 outline-none border-gray-300 rounded-md text-center"
-                                        value="1"
-                                        min="1"
-                                    />
-                                </div>
-                                <div className="text-base text-primary text-right font-josefin font-normal">
-                                    $239.00
-                                </div>
-                            </div>
+                                ))
+                            }
                             <div className="mt-5 flex justify-between">
                                 <button className="bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
                                     Update Curt
