@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoMdClose } from 'react-icons/io';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, deleteProduct, increment } from '../slice/cartSlice';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 const ProductShop = () => {
-    const cartData = useSelector((state)=> state.cartSlice.cartItems)
+    const cartData = useSelector((state) => state.cartSlice.cartItems)
+
+    const dispatch = useDispatch()
+    const [handleDelete, setHandleDelete] = useState('')
+    
+    const hendleIncriment = (item)=>{
+      dispatch(increment(item));  
+    }
+    const hendleDecriment = (item)=>{
+      dispatch(decrement(item));  
+    }
+
+    let hendleFromProduct = (index) => {
+        dispatch(deleteProduct(index))
+        
+    }
 
     return (
         <>
@@ -18,39 +35,52 @@ const ProductShop = () => {
                                 <h3 className="font-josefin font-semibold text-[20px] text-primary text-right">Total</h3>
                             </div>
                             {
-                                cartData.map((item)=>(
+                                cartData.map((item,index) => (
                                     <div className="mt-5 grid grid-cols-4 gap-4 items-center border-b pb-4">
-                                <div className="flex items-start gap-3">
-                                    <div className="relative flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md">
-                                        <img src={item.thumbnail} alt="" />
-                                        <div className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[#000000]  text-white flex items-center justify-center p-[2px]">
-                                        <IoMdClose />
+                                        <div className="flex items-start gap-3">
+                                            <div className="relative flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md">
+                                                <img src={item.thumbnail} alt="" />
+                                                <div  
+                                                onClick={() => hendleFromProduct(index) }
+                                                className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-[#000000]  text-white flex items-center justify-center p-[2px]">
+                                                    <IoMdClose />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-[#000000] font-josefin text-base font-medium w-48" title="Ut diam consequat">
+                                                    {item.title}
+                                                </h4>
+                                                <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Color: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">Brown</span></p>
+                                                <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Size: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">XL</span></p>
+                                            </div>
+                                        </div>
+                                        <div className="text-base text-primary text-center font-josefin font-normal">
+                                            ${item.price}
+                                        </div>
+                                        <div className="flex items-center gap-2 border rounded-md bg-gray-100 w-24 h-8 justify-between mx-auto">
+                                            <button
+                                                onClick={()=> hendleDecriment(index)}
+                                                className="text-gray-600 bg-gray-200 px-2 py-1 rounded hover:bg-gray-300 transition-all"
+                                                aria-label="Decrease Quantity"
+                                            >
+                                                <FaMinus />
+                                            </button>
+                                            <span className="bg-white text-gray-800 w-10 h-full flex justify-center items-center font-medium">
+                                                {item.qty}
+                                            </span>
+                                            <button
+                                                onClick={()=> hendleIncriment(index)}
+                                                className="text-gray-600 bg-gray-200 px-2 py-1 rounded hover:bg-gray-300 transition-all"
+                                                aria-label="Increase Quantity"
+                                            >
+                                                <FaPlus />
+                                            </button>
+                                        </div>
+
+                                        <div className="text-base text-primary text-right font-josefin font-normal">
+                                            ${(item.qty * item.price).toFixed(2)}
                                         </div>
                                     </div>
-                                    <div>
-                                        <h4 className="text-[#000000] font-josefin text-base font-medium w-48" title="Ut diam consequat">
-                                            {item.title}
-                                        </h4>
-                                        <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Color: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">Brown</span></p>
-                                        <p className="text-sm text-[#A1A8C1] font-josefin font-normal">Size: <span className="text-sm text-[#A1A8C1] font-josefin font-normal">XL</span></p>
-                                    </div>
-                                </div>
-                                <div className="text-base text-primary text-center font-josefin font-normal">
-                                    ${item.price}
-                                </div>
-                                <div className="text-center">
-                                    <input
-                                        type="number"
-                                        className="w-16
-                                            border-2 outline-none border-gray-300 rounded-md text-center"
-                                        value={item.qty}
-                                        min="1"
-                                    />
-                                </div>
-                                <div className="text-base text-primary text-right font-josefin font-normal">
-                                    ${(item.price)*(item.qty)}
-                                </div>
-                            </div>
                                 ))
                             }
                             <div className="mt-5 flex justify-between">
