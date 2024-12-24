@@ -29,4 +29,12 @@
   .slick-dots li button::before{
     font-size: 0px !important;
   }
-  
+  /* .......tab........ */
+  .react-tabs__tab-list{
+    border: none !important;
+  }
+  .react-tabs__tab--selected{
+    color: #FB2E86 !important;
+    text-decoration: underline !important;
+    outline: none !important;
+  }
