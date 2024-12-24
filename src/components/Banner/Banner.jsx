@@ -65,9 +65,11 @@ const Banner = () => {
                                     <p className="text-[#8A8FB9] font-lato font-bold text-base w-full">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
                                     </p>
+                                    <Link to="/Home/ShopGrid">
                                     <button className="bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
                                         Shop Now
                                     </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
-        <Route path="/Home/ShopList*" element={<ShopList />} />
+        <Route path="/Home/ShopList/:id*" element={<ShopList />} />
         <Route path="/Home/Contact*" element={<Contact />} />
         <Route path="*" element={<ErrorPages/>} />
       </Routes>

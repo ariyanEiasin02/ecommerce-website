@@ -9,6 +9,8 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import { apiData } from "../ContextApi/ContextApi";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slice/cartSlice";
 
 const ProductCart = () => {
   let data = useContext(apiData)
@@ -67,6 +69,12 @@ const ProductCart = () => {
       },
     ],
   };
+  const dispatch = useDispatch()
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart({ ...product, qty: 1 }))
+    // toast.success("Add to Cart Success!")
+  }
 
   return (
     <section className="py-12 overflow-x-hidden">
@@ -82,8 +90,8 @@ const ProductCart = () => {
                     alt={product.title}
                     className="h-[180px] w-auto mx-auto"
                   />
-                  <div className="absolute top-2 -left-32 group-hover:left-2 duration-700 ease-in-out flex gap-2">
-                    <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                  <div className="absolute top-2 -left-32 group-hover:left-2 duration-700 ease-in-out flex gap-2 justify-center items-center">
+                    <div onClick={() => handleAddToCart(product)}>
                       <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
                     <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
@@ -94,7 +102,7 @@ const ProductCart = () => {
                     </div>
                   </div>
                   <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-2 duration-700 ease-in-out">
-                  <Link to="/Home/ShopGrid">
+                  <Link to={`Home/ShopList/${product.id}`}>
                   <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
                   View Details
                   </button>
