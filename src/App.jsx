@@ -17,6 +17,9 @@ import ShopGrid from './pages/ShopGrid/ShopGrid';
 import ShopList from './pages/ShopList/ShopList';
 import ErrorPages from './pages/ErrorPages/ErrorPages';
 import Contact from './pages/Contact/Contact';
+import LoginPages from './pages/LoginPages/LoginPages';
+import RegistrationPages from './pages/RegistrationPages/RegistrationPages';
+import ForgotPages from './pages/ForgotPages/ForgotPages';
 
 function App() {
   
@@ -27,6 +30,9 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<LoginPages/>} />
+        <Route path="/Registration" element={<RegistrationPages/>} />
+        <Route path="/ForgotPassword" element={<ForgotPages/>} />
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
         <Route path="/Home/ShopList/:id*" element={<ShopList />} />

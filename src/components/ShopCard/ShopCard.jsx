@@ -15,8 +15,7 @@ const ShopCard = () => {
 
     return (
         <>
-            <div className="max-w-container mx-auto md:py-20 py-10 ">
-
+            <div className="max-w-container mx-auto md:py-20 py-10">
                 <div >
 
                     {dataProduct.map((item)=>(

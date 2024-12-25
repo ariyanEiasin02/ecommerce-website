@@ -35,10 +35,12 @@ const Header = () => {
             <option value="USD">$ Dollar</option>
             <option value="BDT">৳ Taka</option>
           </select>
+          <Link to="/Login">
           <button className="text-sm flex items-center text-[#F1F1F1] font-josefin font-semibold">
             <FaUser className="mr-1" />
             <span>Login</span>
           </button>
+          </Link>
           <button className="flex items-center text-sm text-[#F1F1F1] font-josefin font-semibold">
             <FaHeart className="mr-1" />
             <span>Wishlist</span>
