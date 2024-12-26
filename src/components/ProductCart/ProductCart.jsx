@@ -73,7 +73,7 @@ const ProductCart = () => {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart({ ...product, qty: 1 }))
-    // toast.success("Add to Cart Success!")
+    toast.success("Add to Cart Success!")
   }
 
   return (

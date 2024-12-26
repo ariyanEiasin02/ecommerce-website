@@ -20,6 +20,9 @@ import Contact from './pages/Contact/Contact';
 import LoginPages from './pages/LoginPages/LoginPages';
 import RegistrationPages from './pages/RegistrationPages/RegistrationPages';
 import ForgotPages from './pages/ForgotPages/ForgotPages';
+import FaqPages from './pages/FaqPages/FaqPages';
+import CheckOutPages from './pages/CheckOutPages/CheckOutPages';
+import OderCompeletPages from './pages/OderCompeletPages/OderCompeletPages';
 
 function App() {
   
@@ -36,7 +39,10 @@ function App() {
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
         <Route path="/Home/ShopList/:id*" element={<ShopList />} />
+        <Route path="/Home/CheckOut/:id*" element={<CheckOutPages/>} />
+        <Route path="/Home/OderCompelet/*" element={<OderCompeletPages/>} />
         <Route path="/Home/Contact*" element={<Contact />} />
+        <Route path="/Home/Faq*" element={<FaqPages/>} />
         <Route path="*" element={<ErrorPages/>} />
       </Routes>
       <Footer/>

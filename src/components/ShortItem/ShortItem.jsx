@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBorderAll, FaListUl } from 'react-icons/fa'
 
-const ShortItem = () => {
+const ShortItem = ({handleShopMenu,handleShopMenuTwo}) => {
   return (
     <section className='py-6'>
       <div className="max-w-container mx-auto">
@@ -37,12 +37,14 @@ const ShortItem = () => {
             <div className="flex items-center space-x-2">
               <p className="font-lato font-normal text-base text-[#3F509E]">View:</p>
               <button
+                onClick={handleShopMenu}
                 className="p-2 border rounded border-gray-300 hover:bg-gray-200"
                 title="Grid View"
               >
                 <FaBorderAll />
               </button>
               <button
+                onClick={handleShopMenuTwo}
                 className="p-2 border rounded border-gray-300 hover:bg-gray-200"
                 title="List View"
               >

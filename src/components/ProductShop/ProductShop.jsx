@@ -41,6 +41,7 @@ const ProductShop = () => {
         acc.totalQuantity += current.qty;
         return acc
     }, { totalPrice: 0, totalQuantity: 0 })
+    
     return (
         <>
             <section className='py-16 bg-white'>
@@ -191,11 +192,13 @@ const ProductShop = () => {
                                     <p className="text-[14px] text-[#8A91AB] mb-4">
                                         Shipping & taxes calculated at checkout.
                                     </p>
+                                    <Link to="/Home/CheckOut/:id">
                                     <button
                                         className="font-lato text-base w-full px-4 py-2 bg-[#19D16F] text-white font-medium text-center rounded-md hover:opacity-80 transition"
                                     >
                                         Proceed To Checkout
                                     </button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="mt-8">

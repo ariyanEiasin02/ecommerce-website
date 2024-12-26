@@ -38,7 +38,11 @@ const Navbar = () => {
                                 <Link to='/'>
                                     <li className="hover:text-secondCommon cursor-pointer">Home</li>
                                 </Link>
-                                <li className="hover:text-secondCommon cursor-pointer">Pages</li>
+                                <Link to="Home/Faq">
+                                <li className="hover:text-secondCommon cursor-pointer">
+                                Pages
+                                </li>
+                                </Link>
                                 <li className="hover:text-secondCommon cursor-pointer">Products</li>
                                 <li className="hover:text-secondCommon cursor-pointer">Blog</li>
                                 <Link to='/Home/ShopGrid'>
