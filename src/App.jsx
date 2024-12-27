@@ -23,6 +23,7 @@ import ForgotPages from './pages/ForgotPages/ForgotPages';
 import FaqPages from './pages/FaqPages/FaqPages';
 import CheckOutPages from './pages/CheckOutPages/CheckOutPages';
 import OderCompeletPages from './pages/OderCompeletPages/OderCompeletPages';
+import BlogPages from './pages/BlogPages/BlogPages';
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Login" element={<LoginPages/>} />
         <Route path="/Registration" element={<RegistrationPages/>} />
         <Route path="/ForgotPassword" element={<ForgotPages/>} />
+        <Route path="/Home/Blog" element={<BlogPages/>} />
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
         <Route path="/Home/ShopList/:id*" element={<ShopList />} />

@@ -33,7 +33,9 @@ const Navbar = () => {
                 <div className="max-w-container mx-auto px-4 md:px-0">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-x-4 md:gap-x-24">
-                            <img src={logo} alt="Logo" className="" />
+                            <Link to="/">
+                            <img src={logo} alt="Logo"/>
+                            </Link>
                             <ul className={`hidden md:flex gap-x-6 font-lato font-normal text-base text-primary`}>
                                 <Link to='/'>
                                     <li className="hover:text-secondCommon cursor-pointer">Home</li>
@@ -44,7 +46,9 @@ const Navbar = () => {
                                 </li>
                                 </Link>
                                 <li className="hover:text-secondCommon cursor-pointer">Products</li>
+                                <Link to="/Home/Blog">
                                 <li className="hover:text-secondCommon cursor-pointer">Blog</li>
+                                </Link>
                                 <Link to='/Home/ShopGrid'>
                                     <li className="hover:text-secondCommon cursor-pointer">Shop</li>
                                 </Link>
