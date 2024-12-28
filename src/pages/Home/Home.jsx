@@ -8,7 +8,6 @@ import TrendingProducts from '../../components/TrendingProducts/TrendingProducts
 import DiscountItem from '../../components/DiscountItem/DiscountItem'
 import Categories from '../../components/Categories/Categories'
 import NewsLatter from '../../components/NewsLatter/NewsLatter'
-import Company from '../../components/Company/Company'
 import LeatestBlog from '../../components/LeatestBlog/LeatestBlog'
 
 const Home = () => {
@@ -23,7 +22,6 @@ const Home = () => {
        <DiscountItem/>
        <Categories/>
        <NewsLatter/>
-       <Company/>
        <LeatestBlog/>
     </>
   )

@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+  const auth = getAuth();
+  const navigate = useNavigate()
   const [passwordShow, setPasswordShow] = useState(true)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -36,31 +40,65 @@ const Login = () => {
         setPasswordError("Please Enter At Least 8 Characters")
       }
     }
+    if (email && password && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) && /^(?=.*[0-9]).{8,16}$/.test(password)) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((user) => {
+          if (user.user.emailVerified) {
+            toast.success("Login was successful")
+            setTimeout(() => {
+              navigate('/')
+            }, 1000)
+          } else {
+            toast.warning("Please Verify Your Email Address")
+            setTimeout(() => {
+              navigate('/Login')
+            }, 1000)
+          }
+        })
+        .catch((error) => {
+          if (error.code.includes('auth/invalid-credential')) {
+            setEmailError("auth/invalid-credential");
+          }
+        });
+    }
   }
 
   return (
     <section className="flex items-center justify-center py-16">
       <div className="max-w-container mx-auto">
         <div className="bg-white shadow-lg rounded-lg p-8 w-full md:w-[500px]">
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce}
+          />
           <h2 className="font-josefin text-3xl font-bold text-primary text-center">Login</h2>
           <p className="font-lato font-normal text-[17px] text-[#9096B2] text-center mb-6">
             Please login using your account details below.
           </p>
 
           <form>
-          <div className="mb-4">
-            <label htmlFor="email" className="font-josefin text-xl font-medium text-primary">
-              Email Address<span className='text-secondCommon'>*</span>
-            </label>
-            <input
-              onChange={handleEmail}
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              className="w-full mt-2 px-4 py-2 border rounded-md outline-none font-lato font-normal text-[17px] text-[#9096B2]"
-            />
-            <p className="mt-2 font-lato font-normal text-[17px] text-secondCommon">{emailError}</p>
-          </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="font-josefin text-xl font-medium text-primary">
+                Email Address<span className='text-secondCommon'>*</span>
+              </label>
+              <input
+                onChange={handleEmail}
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                className="w-full mt-2 px-4 py-2 border rounded-md outline-none font-lato font-normal text-[17px] text-[#9096B2]"
+              />
+              <p className="mt-2 font-lato font-normal text-[17px] text-secondCommon">{emailError}</p>
+            </div>
             <div className="mb-4 relative">
               <label htmlFor="password" className="font-josefin text-xl font-medium text-primary">
                 Password<span className='text-secondCommon'>*</span>
@@ -90,7 +128,7 @@ const Login = () => {
             <div
               onClick={handleSubmit}
               type="submit"
-              className="w-full text-center rounded-lg bg-secondCommon py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all"
+              className="w-full text-center rounded-lg bg-secondCommon py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all cursor-pointer"
             >
               Sign In
             </div>

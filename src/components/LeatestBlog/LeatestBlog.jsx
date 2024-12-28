@@ -6,7 +6,7 @@ import blog3 from '../../assets/blog3.png'
 const LeatestBlog = () => {
     return (
         <section>
-            <div className="max-w-container mx-auto">
+            <div className="mt-8 max-w-container mx-auto">
                 <div className="text-center mb-5">
                     <h2 className="text-4xl text-primary font-josefin font-bold">Leatest Blog</h2>
                 </div>
