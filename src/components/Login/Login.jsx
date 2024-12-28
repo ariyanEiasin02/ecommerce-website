@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { FcGoogle } from "react-icons/fc";
+
 
 const Login = () => {
   const auth = getAuth();
+  const provider = new GoogleAuthProvider();
   const navigate = useNavigate()
   const [passwordShow, setPasswordShow] = useState(true)
   const [email, setEmail] = useState('')
@@ -61,6 +64,15 @@ const Login = () => {
           }
         });
     }
+  }
+
+  const handleGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then(() => {
+        setTimeout(() => {
+          navigate("/")
+        })
+      })
   }
 
   return (
@@ -133,7 +145,13 @@ const Login = () => {
               Sign In
             </div>
           </form>
-
+          <div className="mt-4">
+            <p className='font-josefin font-bold text-primary text-2xl text-center py-1'>OR</p>
+            <div onClick={handleGoogle} className="flex items-center gap-5 justify-center w-full text-center rounded-lg py-2 mt-3 px-6 bg-primary font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all cursor-pointer">
+              <FcGoogle className='text-4xl' />
+              <p> Continue With Google</p>
+            </div>
+          </div>
           <p className="font-lato font-normal text-[17px] text-[#9096B2] text-center mt-4">
             Don’t have an Account?{" "}
             <Link to="/Registration" className="text-blue-500 hover:underline">

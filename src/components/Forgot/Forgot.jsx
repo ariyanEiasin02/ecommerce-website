@@ -34,7 +34,6 @@ const Forgot = () => {
         })
         .catch((error) => {
           console.log(error.code);
-
         });
     }
   };
