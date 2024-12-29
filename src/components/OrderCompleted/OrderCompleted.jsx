@@ -1,38 +1,48 @@
 import React from 'react'
-
+import Vector from '../../assets/Vector.png'
+import checklist from '../../assets/checklist.png'
+import clock from '../../assets/clock.png'
+import { Link } from 'react-router-dom'
 const OrderCompleted = () => {
     return (
         <section className="py-16 flex flex-col items-center justify-center bg-gray-50">
-            <div className="w-[620px] text-center">
-                <div className="mb-6">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-16 h-16 text-green-500 mx-auto"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 12l2 2 4-4m-6 6a9 9 0 100-18 9 9 0 000 18z"
-                        />
-                    </svg>
+            <div className="max-w-container mx-auto">
+                <div className="max-w-lg lg:max-w-2xl text-center mx-auto">
+                    <div className="mb-6 bg-[#F6F7FA] w-20 h-20 rounded-full flex justify-center items-center mx-auto">
+                        <div className="w-16 h-16 bg-white rounded-full flex justify-center items-center">
+                            <img src={Vector} alt="Order Completed Icon" />
+                        </div>
+                    </div>
+                    <h1 className="font-josefin text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
+                        Your Order Is Completed!
+                    </h1>
+                    <p className="font-lato font-semibold text-sm sm:text-base text-[#8D92A7] mb-6">
+                        Thank you for your order! Your order is being processed and will be completed within 3-6
+                        hours. You will receive an email confirmation when your order is completed.
+                    </p>
+                    <Link to="/Home/ShopGrid">
+                        <button
+                            type="submit"
+                            className="mt-4 bg-secondCommon text-white py-3 px-6 rounded-md font-josefin text-sm sm:text-base lg:text-lg font-bold"
+                        >
+                            Continue to Shipping
+                        </button>
+                    </Link>
                 </div>
-                <h1 className="font-josefin text-2xl font-bold text-gray-800 mb-4">
-                    Your Order Is Completed!
-                </h1>
-                <p className="font-lato text-gray-600 mb-6">
-                    Thank you for your order! Your order is being processed and will be completed within 3-6
-                    hours. You will receive an email confirmation when your order is completed.
-                </p>
-                <button
-                    className="px-6 py-3 bg-blue-600 text-white rounded-md font-josefin font-bold text-lg hover:bg-blue-700 transition-all"
-                    onClick={() => window.location.href = '/'}
-                >
-                    Continue Shopping
-                </button>
+                <div className="md:block hidden mt-16 relative">
+                    <div className="w-[800px] border-b-2 border-dotted mx-auto relative">
+                        <div className="absolute -top-10 -right-4">
+                            <img src={checklist} alt="" />
+                        </div>
+                    </div>
+                    <div className="absolute -top-[300px] left-0">
+                        <div className="h-[300px] border-l-2 border-dotted mx-auto relative">
+                            <div className="-ml-[45px]">
+                                <img src={clock} alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
