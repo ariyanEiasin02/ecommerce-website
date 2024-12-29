@@ -25,6 +25,7 @@ import CheckOutPages from './pages/CheckOutPages/CheckOutPages';
 import OderCompeletPages from './pages/OderCompeletPages/OderCompeletPages';
 import BlogPages from './pages/BlogPages/BlogPages';
 import SimpleBlogPages from './pages/SimpleBlogPages/SimpleBlogPages';
+import AboutPages from './pages/AboutPages/AboutPages';
 
 function App() {
   
@@ -36,17 +37,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<LoginPages/>} />
-        <Route path="/Registration" element={<RegistrationPages/>} />
-        <Route path="/ForgotPassword" element={<ForgotPages/>} />
-        <Route path="/Home/Blog" element={<BlogPages/>} />
-        <Route path="/Home/Blog/Simple" element={<SimpleBlogPages/>} />
+        <Route path="/Registration/*" element={<RegistrationPages/>} />
+        <Route path="/ForgotPassword/*" element={<ForgotPages/>} />
+        <Route path="/Home/About/*" element={<AboutPages/>} />
+        <Route path="/Home/Blog/*" element={<BlogPages/>} />
+        <Route path="/Home/Blog/Simple/*" element={<SimpleBlogPages/>} />
         <Route path="/Home/shop/*" element={<Shop />} />
-        <Route path="/Home/ShopGrid*" element={<ShopGrid />} />
+        <Route path="/Home/ShopGrid/*" element={<ShopGrid />} />
         <Route path="/Home/ShopList/:id*" element={<ShopList />} />
         <Route path="/Home/CheckOut/:id*" element={<CheckOutPages/>} />
         <Route path="/Home/OderCompelet/*" element={<OderCompeletPages/>} />
-        <Route path="/Home/Contact*" element={<Contact />} />
-        <Route path="/Home/Faq*" element={<FaqPages/>} />
+        <Route path="/Home/Contact/*" element={<Contact />} />
+        <Route path="/Home/Faq/*" element={<FaqPages/>} />
         <Route path="*" element={<ErrorPages/>} />
       </Routes>
       <Footer/>

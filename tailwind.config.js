@@ -21,7 +21,8 @@ export default {
         'secondCommon' : '#FB2E86'
       },
       boxShadow:{
-        'shadow' : "0px 8px 0px 0px #2F1AC4"
+        'shadow' : "0px 8px 0px 0px #2F1AC4",
+        'imglastshadow': '-10px 10px #142EB5'
       },
     },
   },
