@@ -76,6 +76,11 @@ const ProductCart = () => {
     toast.success("Add to Cart Success!")
   }
 
+  const handleZoomCart = ()=>{
+    const image = document.getElementById('#zoomableImage'); // 
+    image.style.backgroundColor = "red"
+  }
+
   return (
     <section className="py-12 overflow-x-hidden">
       <div className="max-w-container mx-auto">
@@ -85,11 +90,14 @@ const ProductCart = () => {
             <div key={product.id} className="lg:px-0 px-4 w-fill lg:!w-[95%] mt-5 overflow-x-hidden lg:shadow-xl !bg-white">
               <div className="border rounded-lg shadow-md flex flex-col group overflow-hidden">
                 <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] py-12 px-4 relative overflow-hidden">
+                  <div  className="">
                   <img
+                    id="zoomableImage"
                     src={product.thumbnail}
                     alt={product.title}
-                    className="h-[180px] w-auto mx-auto"
+                    className="h-[180px] w-auto mx-auto transition-transform duration-300 ease-in-out"
                   />
+                  </div>
                   <div className="absolute top-2 -left-32 group-hover:left-2 duration-700 ease-in-out flex gap-2 justify-center items-center">
                     <div onClick={() => handleAddToCart(product)}>
                       <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
@@ -97,7 +105,7 @@ const ProductCart = () => {
                     <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                       <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
-                    <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                    <div onClick={handleZoomCart} className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                       <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
                   </div>

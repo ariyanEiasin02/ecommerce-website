@@ -19,7 +19,7 @@ const ShopCard = () => {
                 <div >
 
                     {dataProduct.map((item) => (
-                        <div className="md:flex md:border   gap-10 p-2 shadow-lg ">
+                        <div className="md:flex md:border   gap-10 py-8 px-2 shadow-lg ">
                             <div className="  flex gap-4">
                                 <div className=" rounded-sm  w-[100px] flex flex-col gap-2 ">
                                     {item.images.map((itemimg) => (
