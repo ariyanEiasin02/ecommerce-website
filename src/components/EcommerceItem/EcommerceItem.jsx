@@ -8,7 +8,6 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slice/cartSlice";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { IoStar } from "react-icons/io5";
 
 const EcommerceItem = () => {

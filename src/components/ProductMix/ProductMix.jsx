@@ -3,25 +3,43 @@ import Card from "../Card/Card";
 import { apiData } from "../ContextApi/ContextApi";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slice/cartSlice";
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 const ProductMix = () => {
   const data = useContext(apiData);
 
-  // Filter the data into categories (adjust these conditions as per your API structure)
-  const newArrivals = data.slice(0, 6); // First 3 items as New Arrivals
-  const bestSellers = data.slice(6, 12); // Next 3 items as Best Sellers
-  const featured = data.slice(12, 18); // Another 3 items as Featured
-  const specialOffers  = data.slice(18, 24); // Another 3 items as Featured
+  const newArrivals = data.slice(0, 6);
+  const bestSellers = data.slice(6, 12);
+  const featured = data.slice(12, 18);
+  const specialOffers = data.slice(18, 24);
+  const dispatch = useDispatch()
 
+  const handleAddToCart = (card) => {
+    dispatch(addToCart({ ...card, qty: 1 }))
+    toast.success("Add to Cart Success!")
+  }
   return (
     <section className="py-12">
       <div className="max-w-container mx-auto md:px-0 px-4">
         <h1 className="text-3xl md:text-4xl font-josefin text-primary font-bold text-center mb-8">
           Latest Products
         </h1>
-
+        <ToastContainer
+          position="top-center"
+          autoClose={500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Bounce}
+        />
         <Tabs>
-          {/* Tab List */}
           <TabList>
             <div className="flex justify-center gap-6 flex-wrap mb-6">
               <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
@@ -34,12 +52,11 @@ const ProductMix = () => {
                 Featured
               </Tab>
               <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
-              Special Offer
+                Special Offer
               </Tab>
             </div>
           </TabList>
 
-          {/* Tab Panels */}
           <TabPanel>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {newArrivals.map((card, index) => (
@@ -49,7 +66,8 @@ const ProductMix = () => {
                   title={card.title}
                   categoryName={card.category}
                   fixedNow={card.price}
-                  fixedOld={card.price * 2}
+                  fixedOld={card.discountPercentage}
+                  handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
             </div>
@@ -64,6 +82,7 @@ const ProductMix = () => {
                   categoryName={card.category}
                   fixedNow={card.price}
                   fixedOld={card.price * 2}
+                  handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
             </div>
@@ -78,6 +97,7 @@ const ProductMix = () => {
                   categoryName={card.category}
                   fixedNow={card.price}
                   fixedOld={card.price * 2}
+                  handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
             </div>
@@ -92,6 +112,7 @@ const ProductMix = () => {
                   categoryName={card.category}
                   fixedNow={card.price}
                   fixedOld={card.price * 2}
+                  handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
             </div>
