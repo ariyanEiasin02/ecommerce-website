@@ -5,8 +5,8 @@ import { apiData } from '../ContextApi/ContextApi';
 
 const TrendingProducts = () => {
   const data = useContext(apiData);
-  let dataInfo = data.filter((item) => item.id >= 1 && item.id <= 4);
-  let dataInfoOffer = data.filter((item) => item.id >= 10 && item.id <= 12);
+  const dataInfo = data.filter((item) => item.id >= 1 && item.id <= 4);
+  const dataInfoOffer = data.filter((item) => item.id >= 10 && item.id <= 12);
 
   return (
     <section className="py-12">
@@ -38,7 +38,7 @@ const TrendingProducts = () => {
                         ${item.price}
                       </p>
                       <p className="text-[#00009D] font-josefin text-xs line-through opacity-30 ml-2 font-normal">
-                        ${item.price * 2}
+                        ${item.discountPercentage}
                       </p>
                     </div>
                   </div>
