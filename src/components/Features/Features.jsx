@@ -68,9 +68,9 @@ const Features = () => {
                                 className="!flex flex-col md:flex-row items-center justify-between px-4 md:px-0"
                             >
                                 <div className="w-full md:w-[45%] flex justify-center">
-                                    <div className="w-[400px] h-[370px] bg-[#F5E1FC] rounded-full flex items-center justify-center">
+                                    <div className="w-[370px] h-[370px] bg-[#F5E1FC] rounded-full flex items-center justify-center">
                                         <img
-                                            className="w-auto max-h-[350px]"
+                                            className="w-full"
                                             src={item.thumbnail}
                                             alt="Product"
                                         />
@@ -120,7 +120,6 @@ const Features = () => {
                             </div>
                         ))}
                     </Slider>
-
                 </div>
             </section>
         </>

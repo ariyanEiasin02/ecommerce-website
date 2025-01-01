@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { apiData } from '../ContextApi/ContextApi'
 import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 const Categories = () => {
     let data = useContext(apiData);
        
@@ -70,9 +71,11 @@ const Categories = () => {
                                 <div className="flex justify-center items-center w-[270px] h-[270px] rounded-full bg-[#F6F7FB] group-hover:shadow-shadow duration-700 ease-in-out relative overflow-hidden mx-auto">
                                     <img className='w-[178px] h-auto' src={item.thumbnail} alt={item.title} />
                                     <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-3 duration-700 ease-in-out">
-                                        <button className="bg-[#08D15F] rounded-md py-3 px-5 font-josefin text-white font-bold text-xs">
-                                            View Shop
-                                        </button>
+                                    <Link to="/Home/ShopGrid/">
+                                    <button className="bg-[#08D15F] rounded-md py-3 px-5 font-josefin text-white font-bold text-xs">
+                                        View Shop
+                                    </button>
+                                    </Link>
                                     </div>
                                 </div>
                                 <div className="text-center mt-3">

@@ -3,6 +3,7 @@ import { FaCalendarAlt, FaTools } from 'react-icons/fa'
 import blog1 from '../../assets/blog1.png'
 import blog2 from '../../assets/blog2.png'
 import blog3 from '../../assets/blog3.png'
+import { Link } from 'react-router-dom'
 const LeatestBlog = () => {
     return (
         <section>
@@ -37,9 +38,11 @@ const LeatestBlog = () => {
                                 More off this and less hello samlande lied much over tightly circa
                                 horse taped mightly
                             </p>
+                            <Link to="/Home/Blog/">
                             <button className="mt-3 text-primary group-hover:text-secondCommon duration-700 underline font-lato font-normal text-base">
                                 Read More
                             </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="w-full lg:w-[32%] bg-white shadow-lg overflow-hidden group rounded-lg my-6 lg:my-0">
@@ -68,9 +71,11 @@ const LeatestBlog = () => {
                                 More off this and less hello samlande lied much over tightly circa
                                 horse taped mightly
                             </p>
+                            <Link to="/Home/Blog/">
                             <button className="mt-3 text-primary group-hover:text-secondCommon duration-700 underline font-lato font-normal text-base">
                                 Read More
                             </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="w-full lg:w-[32%] bg-white shadow-lg overflow-hidden group rounded-lg">
@@ -99,9 +104,11 @@ const LeatestBlog = () => {
                                 More off this and less hello samlande lied much over tightly circa
                                 horse taped mightly
                             </p>
+                            <Link to="/Home/Blog/">
                             <button className="mt-3 text-primary group-hover:text-secondCommon duration-700 underline font-lato font-normal text-base">
                                 Read More
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
