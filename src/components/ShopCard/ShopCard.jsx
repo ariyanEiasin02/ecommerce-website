@@ -7,52 +7,93 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { useParams } from 'react-router-dom';
 import { apiData } from '../ContextApi/ContextApi';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slice/cartSlice';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 
 const ShopCard = () => {
+    const dispatch = useDispatch()
     const DetailsApiData = useContext(apiData)
     const product = useParams()
     const dataProduct = DetailsApiData.filter((item) => item.id == product.id)
+    const [thumbnail, setThumbnail] = useState(dataProduct.thumbnail);
 
+    const handleThumbnail = (itemimg) => {
+        setThumbnail(itemimg)
+    }
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart({ ...product, qty: 1 }))
+        toast.success("Add to Cart Success!")
+    }
     return (
-        <>
-            <div className="max-w-container mx-auto md:py-20 py-10">
-                <div >
-
-                    {dataProduct.map((item) => (
-                        <div className="md:flex md:border   gap-10 py-8 px-2 shadow-lg ">
-                            <div className="  flex gap-4">
-                                <div className=" rounded-sm  w-[100px] flex flex-col gap-2 ">
-                                    {item.images.map((itemimg) => (
-                                        <img className='  w-full  bg-[#ebebf0] ' src={itemimg} alt="" />
+        <section className='py-16'>
+            <div className="max-w-container mx-auto">
+                <ToastContainer
+                    position="top-center"
+                    autoClose={500}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                    transition={Bounce}
+                />
+                <div className='px-4 md:px-0' >
+                    {dataProduct.map((item,index) => (
+                        <div key={index} className="md:flex items-center shadow-[#F6F4FD]  gap-10 py-8 px-2 shadow-2xl ">
+                            <div className="flex gap-4">
+                                <div className="rounded-sm  w-[100px] flex flex-col gap-2 ">
+                                    {item.images.map((itemimg, index) => (
+                                        <img
+                                            key={index}
+                                            className='w-full  bg-[#ebebf0] ' src={itemimg} alt={`Thumbnail ${index + 1}`}
+                                            onClick={() => handleThumbnail(itemimg)} />
                                     ))}
                                 </div>
-                                <div className="md:w-[300px] w-[250px]  rounded-sm border-red-600">
+                                <div className="md:w-[300px] w-[250px] h-[350px] border-2 overflow-hidden cursor-pointer rounded-sm flex justify-center items-center">
 
-                                    <img className='bg-[#ebebf0] h-full ' src={item.thumbnail} alt="" />
-
+                                    {
+                                        thumbnail &&
+                                        <InnerImageZoom
+                                        src={thumbnail}
+                                        zoomSrc={thumbnail}
+                                        className="w-full h-full"
+                                        zoomType="hover"
+                                        zoomScale={1.2}
+                                        fadeDuration={200}
+                                    />
+                                    }
                                 </div>
                             </div>
 
                             <div className="pt-5 md:pt-0">
-                                <h3 className='text-2xl font-bold font-josefin '>{item.title}</h3>
-                                <div className="flex items-center gap-5">
-                                    <div className="flex text-yellow-400">
+                                <h3 className='font-josefin font-semibold text-4xl text-primary'>{item.title}</h3>
+                                <div className="mt-2 flex items-center gap-2">
+                                    <div className="flex gap-2 text-[#FFC416]">
                                         <p><IoIosStar /></p>
                                         <p><IoIosStar /></p>
                                         <p><IoIosStar /></p>
                                         <p><IoIosStar /></p>
                                         <p><IoIosStar /></p>
                                     </div>
-                                    <p> (22) </p>
+                                    <p className='text-primary text-sm font-josefin font-normal'> (22) </p>
                                 </div>
-                                <p className='font-bold mt-2'>${item.price}<span className='text-red-500 pl-5 line-through '>${item.discountPercentage}</span> </p>
-                                <p className='font-bold mt-2'>Color</p>
-                                <p className='text-[#8f8f97] md:text-[16px] text-[14px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus <br /> porttitor purus, et volutpat sit.</p>
-                                <h5 className='flex gap-5 font-bold items-center mt-5 font-josefin '>Add To Cart <FaRegHeart /></h5>
-                                <p className=' font-josefin mt-3  '><span className='font-bold'>Categories :</span>  {item.category}</p>
-                                <p className=' font-josefin mt-2'><span className='font-bold'>Tags :</span>  {item.tags} </p>
-                                <div className="flex gap-5 items-center mt-2">
-                                    <p className=' font-josefin'>Share</p>
+                                <p className='font-josefin text-[18px] font-medium text-primary mt-2'>${item.price}<span className='text-secondCommon pl-2 line-through text-sm'>${item.discountPercentage}</span> </p>
+                                <p className='font-josefin font-semibold text-[18px] text-primary mt-2'>Color</p>
+                                <p className='font-lato font-normal text-base text-[#A9ACC6] w-[80%]'>{item.description}</p>
+                                <button onClick={() => handleAddToCart(item)} className="bg-secondCommon mt-5 py-3 px-8 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all rounded-md mb-2">
+                                    Add To Cart
+                                </button>
+                                <p className='font-josefin font-semibold text-primary text-[18px] py-1'>Categories : <span className='text-base text-[#A9ACC6]'>{item.category}</span></p>
+                                <p className='font-josefin font-semibold text-primary text-[18px] py-1'>Tags : <span className='text-base text-[#A9ACC6]'>{item.tags}</span></p>
+                                <div className="flex gap-2 items-center">
+                                    <p className='font-josefin font-semibold text-primary text-[18px] py-2'>Share:</p>
                                     <div className="flex gap-3">
                                         <p><FaFacebook /></p>
                                         <p><FaInstagramSquare /></p>
@@ -65,7 +106,7 @@ const ShopCard = () => {
                     }
                 </div>
             </div>
-        </>
+        </section>
     )
 }
 

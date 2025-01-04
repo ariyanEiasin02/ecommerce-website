@@ -11,8 +11,8 @@ const RelatedProducts = () => {
             <h2 className='font-josefin font-bold text-4xl text-primary'>Related Products</h2>
             <div className="mt-7 md:flex justify-between">
                 {
-                    dataInfoOffer.map((item)=>(
-                        <div className="md:w-[23%] w-full mt-5 md:mt-0">
+                    dataInfoOffer.map((item,index)=>(
+                        <div key={index} className="md:w-[23%] w-full mt-5 md:mt-0">
                     <div className="bg-[#F6F7FB] rounded-lg">
                     <img src={item.thumbnail} alt="thumbnail" />
                     </div>
