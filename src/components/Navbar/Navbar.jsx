@@ -40,13 +40,10 @@ const Navbar = () => {
                                 <Link to='/'>
                                     <li className="hover:text-secondCommon cursor-pointer">Home</li>
                                 </Link>
-                                <Link to="Home/Faq">
+                                <Link to="/Home/About">
                                 <li className="hover:text-secondCommon cursor-pointer">
-                                Pages
+                                About Us
                                 </li>
-                                </Link>
-                                <Link to="/Home/About/">
-                                <li className="hover:text-secondCommon cursor-pointer">Products</li>
                                 </Link>
                                 <Link to="/Home/Blog">
                                 <li className="hover:text-secondCommon cursor-pointer">Blog</li>
@@ -56,6 +53,9 @@ const Navbar = () => {
                                 </Link>
                                 <Link to="/Home/Contact">
                                     <li className="hover:text-secondCommon cursor-pointer">Contact</li>
+                                </Link>
+                                <Link to="/Home/Faq/">
+                                <li className="hover:text-secondCommon cursor-pointer">Faq</li>
                                 </Link>
                             </ul>
                         </div>
@@ -104,11 +104,8 @@ const Navbar = () => {
                             <Link to="/">
                                 <li className="hover:text-secondCommon cursor-pointer">Home</li>
                             </Link>
-                           <Link to="/Home/Faq">
-                           <li className="hover:text-secondCommon cursor-pointer">Pages</li>
-                           </Link>
-                           <Link to="/Home/About/">
-                           <li className="hover:text-secondCommon cursor-pointer">Products</li>
+                           <Link to="/Home/About">
+                           <li className="hover:text-secondCommon cursor-pointer">About Us</li>
                            </Link>
                             <Link to="/Home/Blog">  
                             <li className="hover:text-secondCommon cursor-pointer">Blog</li>
@@ -119,6 +116,9 @@ const Navbar = () => {
                             <Link to="/Home/Contact">
                                 <li className="hover:text-secondCommon cursor-pointer">Contact</li>
                             </Link>
+                            <Link to="/Home/Faq/">
+                           <li className="hover:text-secondCommon cursor-pointer">Faq</li>
+                           </Link>
                         </ul>
                         <div className="relative flex items-center justify-center mx-auto mt-2">
                             <input
