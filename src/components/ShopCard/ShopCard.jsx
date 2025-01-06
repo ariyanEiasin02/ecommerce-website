@@ -57,9 +57,6 @@ const ShopCard = () => {
                                     ))}
                                 </div>
                                 <div className="md:w-[300px] w-[250px] h-[350px] border-2 overflow-hidden cursor-pointer rounded-sm flex justify-center items-center">
-
-                                    {
-                                        thumbnail &&
                                         <InnerImageZoom
                                         src={thumbnail}
                                         zoomSrc={thumbnail}
@@ -68,7 +65,6 @@ const ShopCard = () => {
                                         zoomScale={1.2}
                                         fadeDuration={200}
                                     />
-                                    }
                                 </div>
                             </div>
 

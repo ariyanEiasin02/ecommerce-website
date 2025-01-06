@@ -53,15 +53,15 @@ const EcommerceItem = () => {
 
   // pageinetion...................................
   const [currentPage, setCurrentPage] = useState(1);
-  let [perPage, setPerPage] = useState(15);
+  const [perPage, setPerPage] = useState(15);
 
-  let lastItemIndex = currentPage * perPage;
-  let firstItemIndex = lastItemIndex - perPage;
+  const lastItemIndex = currentPage * perPage;
+  const firstItemIndex = lastItemIndex - perPage;
 
-  let perPageProduct = shopApiProduct.slice(firstItemIndex, lastItemIndex)
-  let pageNumbers = Math.ceil(shopApiProduct.length / perPage);
+  const perPageProduct = shopApiProduct.slice(firstItemIndex, lastItemIndex)
+  const pageNumbers = Math.ceil(shopApiProduct.length / perPage);
 
-  let numbers = []
+  const numbers = []
   for (let i = 1; i <= pageNumbers; i++) {
     numbers.push(i)
   }
@@ -73,7 +73,7 @@ const EcommerceItem = () => {
     }
   }
   const hendelNextPage = () => {
-    if (currentPage === pageNumbers) {
+    if (currentPage <= pageNumbers) {
       setCurrentPage(currentPage + 1)
     }
   }
@@ -766,18 +766,41 @@ const EcommerceItem = () => {
                   }
                 </div>
             }
-            <div>
-              <ul className='flex md:gap-2 mt-5 pb-5 items-center md:overflow-x-hidden  overflow-x-scroll md:w-full w-[350px] '>
-                <button onClick={hendelPrevPage} className='py-2 px-5 border-2 border-gray-300 rounded-sm text-[#8A8FB9] md:ml-10'>Prev</button>
+           <div className="w-full">
+  <ul className="flex flex-wrap gap-2 mt-5 pb-5 items-center  w-full">
+    <button 
+    disabled={currentPage === 1}
+      onClick={hendelPrevPage} 
+      className={`py-2 px-5 border-2 border-gray-300 rounded-sm text-[#8A8FB9] ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+    >
+      Prev
+    </button>
 
-                {numbers.map((item) => (
-                  <li className={`border-2 py-2 px-3 cursor-pointer rounded-md ${currentPage === item ? 'bg-[#c3c3d4] border-[#c3c3d4] text-white' : ' '}`} onClick={() => setCurrentPage(item)}>{item} </li>
+    {numbers.map((item) => (
+      <li 
+        key={item}
+        className={`border-2 py-2 px-3 cursor-pointer rounded-md ${
+          currentPage === item 
+            ? 'bg-[#c3c3d4] border-[#c3c3d4] text-white' 
+            : ''
+        }`}
+        onClick={() => setCurrentPage(item)}
+      >
+        {item}
+      </li>
+    ))}
 
-                ))}
+    <button 
+      onClick={hendelNextPage} 
+      disabled={currentPage === pageNumbers}
+      className={`py-2 px-5 border-2 border-gray-300 rounded-sm text-[#8A8FB9] ${currentPage === pageNumbers ? 'opacity-50 cursor-not-allowed' : ''}`}
+    >
+      Next
+    </button>
+  </ul>
+</div>
 
-                <button onClick={hendelNextPage} className='py-2 px-5 border-2 border-gray-300 rounded-sm text-[#8A8FB9]'>Next</button>
-              </ul>
-            </div>
+
           </div>
         </div>
       </div>

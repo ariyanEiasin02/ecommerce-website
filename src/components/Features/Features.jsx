@@ -6,8 +6,10 @@ import { apiData } from '../ContextApi/ContextApi';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../slice/cartSlice';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 const Features = () => {
     const data = useContext(apiData);
+    const dataInfo = data.filter((item) => item.id >= 60 && item.id <= 196);
     const settings = {
         dots: false,
         infinite: true,
@@ -62,18 +64,25 @@ const Features = () => {
                         transition={Bounce}
                     />
                     <Slider {...settings}>
-                        {data.map((item, index) => (
+                        {dataInfo.map((item, index) => (
                             <div
                                 key={index}
                                 className="!flex flex-col md:flex-row items-center justify-between px-4 md:px-0"
                             >
                                 <div className="w-full md:w-[45%] flex justify-center">
-                                    <div className="w-[370px] h-[370px] bg-[#F5E1FC] rounded-full flex items-center justify-center">
+                                    <div className="w-[370px] h-[370px] bg-[#F5E1FC] rounded-full flex items-center justify-center relative group overflow-hidden">
                                         <img
                                             className="w-full"
                                             src={item.thumbnail}
                                             alt="Product"
                                         />
+                                        <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-5 duration-700 ease-in-out">
+                                            <Link to={`Home/ShopList/${item.id}`}>
+                                                <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
+                                                    View Details
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
 

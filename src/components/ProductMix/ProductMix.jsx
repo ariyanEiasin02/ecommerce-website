@@ -10,10 +10,10 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 const ProductMix = () => {
   const data = useContext(apiData);
 
-  const newArrivals = data.slice(0, 6);
-  const bestSellers = data.slice(6, 12);
-  const featured = data.slice(12, 18);
-  const specialOffers = data.slice(18, 24);
+  const newArrivals = data.slice(35, 41);
+  const bestSellers = data.slice(41, 47);
+  const featured = data.slice(80, 86);
+  const specialOffers = data.slice(148, 154);
   const dispatch = useDispatch()
 
   const handleAddToCart = (card) => {
@@ -42,16 +42,16 @@ const ProductMix = () => {
         <Tabs>
           <TabList>
             <div className="flex justify-center gap-6 flex-wrap mb-6">
-              <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+              <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
                 New Arrival
               </Tab>
-              <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+              <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
                 Best Seller
               </Tab>
-              <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+              <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
                 Featured
               </Tab>
-              <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+              <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
                 Special Offer
               </Tab>
             </div>
@@ -67,6 +67,7 @@ const ProductMix = () => {
                   categoryName={card.category}
                   fixedNow={card.price}
                   fixedOld={card.discountPercentage}
+                  productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
@@ -81,7 +82,8 @@ const ProductMix = () => {
                   title={card.title}
                   categoryName={card.category}
                   fixedNow={card.price}
-                  fixedOld={card.price * 2}
+                  fixedOld={card.discountPercentage}
+                  productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
@@ -96,7 +98,8 @@ const ProductMix = () => {
                   title={card.title}
                   categoryName={card.category}
                   fixedNow={card.price}
-                  fixedOld={card.price * 2}
+                  fixedOld={card.discountPercentage}
+                  productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}
@@ -111,7 +114,8 @@ const ProductMix = () => {
                   title={card.title}
                   categoryName={card.category}
                   fixedNow={card.price}
-                  fixedOld={card.price * 2}
+                  fixedOld={card.discountPercentage}
+                  productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
                 />
               ))}

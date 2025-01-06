@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Categories = () => {
     let data = useContext(apiData);
        
-    let fillerData = data.filter((item) => item.id >= 15 && item.id <= 30)
+    let fillerData = data.filter((item) => item.id >= 80 && item.id <= 120)
 
     const PreviousArrow = ({ onClick }) => {
         return (
