@@ -47,8 +47,8 @@ const ShopCard = () => {
                 <div className='px-4 md:px-0' >
                     {dataProduct.map((item,index) => (
                         <div key={index} className="md:flex items-center shadow-[#F6F4FD]  gap-10 py-8 px-2 shadow-2xl ">
-                            <div className="flex gap-4">
-                                <div className="rounded-sm  w-[100px] flex flex-col gap-2 ">
+                            <div className="flex md:flex-row flex-col-reverse gap-4">
+                                <div className="rounded-sm  w-[100px] flex md:flex-col flex-row gap-2 ">
                                     {item.images.map((itemimg, index) => (
                                         <img
                                             key={index}
@@ -56,7 +56,9 @@ const ShopCard = () => {
                                             onClick={() => handleThumbnail(itemimg)} />
                                     ))}
                                 </div>
-                                <div className="md:w-[300px] w-[250px] h-[350px] border-2 overflow-hidden cursor-pointer rounded-sm flex justify-center items-center">
+                                <div className="md:w-[300px] w-full h-[350px] border-2 overflow-hidden cursor-pointer rounded-sm flex justify-center items-center">
+                                    {
+                                        thumbnail ? 
                                         <InnerImageZoom
                                         src={thumbnail}
                                         zoomSrc={thumbnail}
@@ -65,6 +67,17 @@ const ShopCard = () => {
                                         zoomScale={1.2}
                                         fadeDuration={200}
                                     />
+                                    :
+                                    <InnerImageZoom
+                                        src={item.thumbnail}
+                                        zoomSrc={item.thumbnail}
+                                        className="w-full h-full"
+                                        zoomType="hover"
+                                        zoomScale={1.2}
+                                        fadeDuration={200}
+                                    />
+                                    }
+                                        
                                 </div>
                             </div>
 

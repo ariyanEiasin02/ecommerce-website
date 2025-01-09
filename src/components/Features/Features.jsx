@@ -70,7 +70,7 @@ const Features = () => {
                                 className="!flex flex-col md:flex-row items-center justify-between px-4 md:px-0"
                             >
                                 <div className="w-full md:w-[45%] flex justify-center">
-                                    <div className="w-[370px] h-[370px] bg-[#F5E1FC] rounded-full flex items-center justify-center relative group overflow-hidden">
+                                    <div className="md:w-[370px] w-[260px] md:h-[370px] h-[260px] bg-[#F5E1FC] rounded-full flex items-center justify-center relative group overflow-hidden">
                                         <img
                                             className="w-full"
                                             src={item.thumbnail}
@@ -93,15 +93,15 @@ const Features = () => {
 
                                     <div className="flex items-center mt-4">
                                         <div className="w-3 h-3 bg-[#F52B70] rounded-full"></div>
-                                        <p className="font-lato font-medium text-base text-[#ACABC3] pl-2">
-                                            All frames constructed with hardwood solids and laminates
+                                        <p className="font-lato font-medium text-sm md:text-base text-[#ACABC3] pl-2">
+                                            All frames constructed with laminates
                                         </p>
                                     </div>
 
                                     <div className="flex items-center mt-2">
                                         <div className="w-3 h-3 bg-[#2B2BF5] rounded-full"></div>
-                                        <p className="font-lato font-medium text-base text-[#ACABC3] pl-2">
-                                            Reinforced with double wood dowels, glue, screw-nails corner blocks, and machine nails
+                                        <p className="font-lato font-medium text-sm md:text-base text-[#ACABC3] pl-2">
+                                            Reinforced screw-nails corner blocks, and machine
                                         </p>
                                     </div>
 

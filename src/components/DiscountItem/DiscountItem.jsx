@@ -16,13 +16,13 @@ const DiscountItem = () => {
         <Tabs>
           <TabList>
             <div className="flex justify-center gap-6 flex-wrap my-6">
-            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+            <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
             Wood Chair
             </Tab>
-            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+            <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
             Plastic Chair
             </Tab>
-            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+            <Tab className="text-primary cursor-pointer font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
             Sofa Collection
             </Tab>
             </div>
@@ -62,7 +62,7 @@ const DiscountItem = () => {
           </div>
           
           <div className="w-full lg:w-[48%]">
-            <div className="w-[450px] h-[450px] bg-[#FCECF1] rounded-full">
+            <div className="md:w-[450px] w-[300px] md:h-[450px] h-[300px] bg-[#FCECF1] rounded-full">
             <img
               src={discountImg}
               alt="Discount"
@@ -107,11 +107,11 @@ const DiscountItem = () => {
           </div>
           
           <div className="w-full lg:w-[48%]">
-            <div className="w-[450px] h-[450px] bg-[#FCECF1] rounded-full">
+            <div className="md:w-[450px] w-[300px] md:h-[450px] h-[300px] bg-[#FCECF1] rounded-full">
             <img
               src={discountChair}
               alt="discountChair"
-              className="w-[690px] h-auto"
+              className="md:w-[690px] w-[500px] h-auto"
             />
             </div>
           </div>
@@ -152,11 +152,11 @@ const DiscountItem = () => {
           </div>
           
           <div className="w-full lg:w-[48%]">
-            <div className="w-[450px] h-[450px] bg-[#FCECF1] rounded-full">
+            <div className="md:w-[450px] w-[300px] md:h-[450px] h-[300px] bg-[#FCECF1] rounded-full">
             <img
               src={discountSofa}
               alt="discountSofa"
-              className="w-[690px] h-auto"
+              className="md:w-[690px] w-[500px] h-auto"
             />
             </div>
           </div>

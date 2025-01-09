@@ -5,20 +5,20 @@ import Group2 from '../../assets/Group2.png'
 const AdditionalInfo = () => {
     return (
         <section className='py-16 bg-[#F9F8FE]'>
-            <div className="max-w-container mx-auto">
+            <div className="max-w-container mx-auto px-4 md:px-0">
                 <Tabs>
                     <TabList>
-                        <div className="flex cursor-pointer gap-6 flex-wrap mb-6">
-                            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+                        <div className="flex cursor-pointer md:gap-6 gap-4 flex-wrap mb-6">
+                            <Tab className="text-primary font-lato  text-sm md:text-lg hover:text-secondCommon hover:underline">
                                 Description
                             </Tab>
-                            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+                            <Tab className="text-primary font-lato text-sm md:text-lg hover:text-secondCommon hover:underline">
                                 Additional Info
                             </Tab>
-                            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+                            <Tab className="text-primary font-lato text-sm md:text-lg hover:text-secondCommon hover:underline">
                                 Reviews
                             </Tab>
-                            <Tab className="text-primary font-lato text-base md:text-lg hover:text-secondCommon hover:underline">
+                            <Tab className="text-primary font-lato text-sm md:text-lg hover:text-secondCommon hover:underline">
                                 Video
                             </Tab>
                         </div>
@@ -122,7 +122,7 @@ const AdditionalInfo = () => {
                         <div className="">
                             <div className="">
                                 <img src={Group2} alt="video" />
-                                <p className='font-lato font-normal text-[#A9ACC6] w-[60%] text-base pt-3'>See Natural in action! This short video highlights its standout features, functionality, and real-life applications, giving you a closer look at why it's the perfect choice for wonderfull view.</p>
+                                <p className='font-lato font-normal text-[#A9ACC6] md:w-[60%] text-base pt-3'>See Natural in action! This short video highlights its standout features, functionality, and real-life applications, giving you a closer look at why it's the perfect choice for wonderfull view.</p>
                             </div>
                         </div>
                     </TabPanel>
