@@ -126,9 +126,9 @@ const CheckOut = () => {
             theme="dark"
             transition={Bounce}
           />
-                <div className="flex justify-between">
-                    <div className="w-[60%] mx-auto bg-[#F8F8FD]  shadow-md rounded-lg px-6 py-10">
-                        <div className="flex justify-between">
+                <div className="md:flex justify-between px-4 md:px-0">
+                    <div className="md:w-[60%] mx-auto bg-[#F8F8FD]  shadow-md rounded-lg px-6 py-10">
+                        <div className="md:flex justify-between">
                             <div className="">
                                 <h2 className="font-josefin text-xl font-bold text-primary mb-6">
                                     Contact Information
@@ -259,7 +259,7 @@ const CheckOut = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="w-[35%]">
+                    <div className="md:w-[35%]">
                         {
 
                             cartData.map((item, index) => (
@@ -300,13 +300,11 @@ const CheckOut = () => {
                                 <p className="text-[14px] text-[#8A91AB] mb-4">
                                     Shipping & taxes calculated at checkout.
                                 </p>
-                                <Link to="/Home/OderCompelet/">
                                     <button
                                         className="font-lato text-base w-full px-4 py-2 bg-[#19D16F] text-white font-medium text-center rounded-md hover:opacity-80 transition"
                                     >
                                         Proceed To Checkout
                                     </button>
-                                </Link>
                             </div>
                         </div>
                     </div>

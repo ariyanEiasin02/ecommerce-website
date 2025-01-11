@@ -119,7 +119,7 @@ const ProductCart = () => {
                     </div>
                   </div>
                   <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-2 duration-700 ease-in-out">
-                    <Link to={`Home/ShopList/${product.id}`}>
+                    <Link to={`/ShopList/${product.id}`}>
                       <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
                         View Details
                       </button>

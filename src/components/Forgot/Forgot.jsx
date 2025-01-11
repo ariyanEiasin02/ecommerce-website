@@ -77,7 +77,7 @@ const Forgot = () => {
             />
             <p className="mt-2 font-lato font-normal text-[17px] text-secondCommon">{emailError}</p>
           </div>
-          <div className="flex justify-between mt-6">
+          <div className="md:flex justify-between mt-6">
             <div
               onClick={handleSubmit}
               type="submit"
@@ -85,11 +85,11 @@ const Forgot = () => {
             >
               Send Reset Link
             </div>
-            <div className="">
+            <div className="mt-5 md:mt-0">
               <Link to="/Login">
                 <button
                   type="submit"
-                  className="text-center rounded-lg bg-secondCommon py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all"
+                  className="text-center rounded-lg bg-secondCommon py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 w-full transition-all"
                 >
                   Back to Login
                 </button>

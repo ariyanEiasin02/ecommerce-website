@@ -44,7 +44,7 @@ function App() {
         <Route path="/Home/Blog/Simple/*" element={<SimpleBlogPages/>} />
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid/*" element={<ShopGrid />} />
-        <Route path="/Home/ShopList/:id*" element={<ShopList />} />
+        <Route path="/ShopList/:id*" element={<ShopList />} />
         <Route path="/Home/CheckOut/:id*" element={<CheckOutPages/>} />
         <Route path="/Home/OderCompelet/*" element={<OderCompeletPages/>} />
         <Route path="/Home/Contact/*" element={<Contact />} />

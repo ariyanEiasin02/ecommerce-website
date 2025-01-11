@@ -9,10 +9,11 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../slice/cartSlice";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { IoStar } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const EcommerceItem = () => {
   const shopApiProduct = useContext(apiData)
-
+  const [itemZoom, setItemZoom] = useState(null)
   const [category, setCategory] = useState([])
   const [brand, setBrand] = useState([])
   const [menuCol, setMenuCol] = useState('')
@@ -90,6 +91,9 @@ const EcommerceItem = () => {
   }
   const handleShopMenuTwo = () => {
     setMenuCol(true)
+  }
+  const handleZoomCart = (index) => {
+    setItemZoom((prevIndex) => (prevIndex === index ? null : index))
   }
   return (
     <section className="pt-12">
@@ -186,27 +190,13 @@ const EcommerceItem = () => {
                       >
                         <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-full lg:w-[38%] h-[180px] lg:h-[220px] overflow-hidden">
                           <div>
+                            <Link to={`/ShopList/${item.id}`}>
                             <img
                               src={item.thumbnail}
                               alt={item.title}
-                              className="h-[150px] lg:h-[170px] w-auto"
-                            />
-                            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-6 lg:-left-16 group-hover:left-4 duration-700 ease-in-out">
-                              <ul className="flex gap-2 lg:block">
-                                <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                  <FiShoppingCart
-                                    onClick={() => handleAddToCart(item)}
-                                    className="text-[#1389FF] hover:text-[#00009D]"
-                                  />
-                                </li>
-                                <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                  <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
-                                </li>
-                                <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                  <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
-                                </li>
-                              </ul>
-                            </div>
+                              className={`h-[150px] lg:h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                              />
+                            </Link>
                           </div>
                         </div>
                         <div className="w-full lg:w-[58%] flex flex-col mt-4 lg:mt-0">
@@ -238,12 +228,22 @@ const EcommerceItem = () => {
                           <p className="py-1 text-sm lg:text-base font-lato text-[#9295AA] font-normal mt-2">
                             {item.description}
                           </p>
-                          <button
-                            onClick={() => handleAddToCart(item)}
-                            className="w-full rounded-lg bg-secondCommon mt-5 py-2 lg:py-3 px-6 font-josefin text-white font-bold text-sm lg:text-base hover:bg-opacity-90 transition-all"
-                          >
-                            Add to Cart
-                          </button>
+                          <div className="">
+                                    <ul className="flex gap-2">
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FiShoppingCart
+                                          onClick={() => handleAddToCart(item)}
+                                          className="text-[#1389FF] hover:text-[#00009D]"
+                                        />
+                                      </li>
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                      <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                    </ul>
+                            </div>
                           <ToastContainer
                             position="top-center"
                             autoClose={500}
@@ -270,27 +270,13 @@ const EcommerceItem = () => {
                         >
                           <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-full lg:w-[38%] h-[180px] lg:h-[220px] overflow-hidden">
                             <div>
+                              <Link to={`/ShopList/${item.id}`}>
                               <img
                                 src={item.thumbnail}
                                 alt={item.title}
-                                className="h-[150px] lg:h-[170px] w-auto"
-                              />
-                              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-6 lg:-left-16 group-hover:left-4 duration-700 ease-in-out">
-                                <ul className="flex gap-2 lg:block">
-                                  <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                    <FiShoppingCart
-                                      onClick={() => handleAddToCart(item)}
-                                      className="text-[#1389FF] hover:text-[#00009D]"
-                                    />
-                                  </li>
-                                  <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                    <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
-                                  </li>
-                                  <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                    <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
-                                  </li>
-                                </ul>
-                              </div>
+                                className={`h-[150px] lg:h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                                />
+                              </Link>
                             </div>
                           </div>
                           <div className="w-full lg:w-[58%] flex flex-col mt-4 lg:mt-0">
@@ -322,12 +308,22 @@ const EcommerceItem = () => {
                             <p className="py-1 text-sm lg:text-base font-lato text-[#9295AA] font-normal mt-2">
                               {item.description}
                             </p>
-                            <button
-                              onClick={() => handleAddToCart(item)}
-                              className="w-full rounded-lg bg-secondCommon mt-5 py-2 lg:py-3 px-6 font-josefin text-white font-bold text-sm lg:text-base hover:bg-opacity-90 transition-all"
-                            >
-                              Add to Cart
-                            </button>
+                            <div className="">
+                                    <ul className="flex gap-2">
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FiShoppingCart
+                                          onClick={() => handleAddToCart(item)}
+                                          className="text-[#1389FF] hover:text-[#00009D]"
+                                        />
+                                      </li>
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                      <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                    </ul>
+                              </div>
                             <ToastContainer
                               position="top-center"
                               autoClose={500}
@@ -353,27 +349,13 @@ const EcommerceItem = () => {
                           >
                             <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-full lg:w-[38%] h-[180px] lg:h-[220px] overflow-hidden">
                               <div>
-                                <img
-                                  src={item.thumbnail}
-                                  alt={item.title}
-                                  className="h-[150px] lg:h-[170px] w-auto"
+                              <Link to={`/ShopList/${item.id}`}>
+                              <img
+                                src={item.thumbnail}
+                                alt={item.title}
+                                className={`h-[150px] lg:h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
                                 />
-                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-6 lg:-left-16 group-hover:left-4 duration-700 ease-in-out">
-                                  <ul className="flex gap-2 lg:block">
-                                    <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                      <FiShoppingCart
-                                        onClick={() => handleAddToCart(item)}
-                                        className="text-[#1389FF] hover:text-[#00009D]"
-                                      />
-                                    </li>
-                                    <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                      <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
-                                    </li>
-                                    <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                      <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
-                                    </li>
-                                  </ul>
-                                </div>
+                              </Link>
                               </div>
                             </div>
                             <div className="w-full lg:w-[58%] flex flex-col mt-4 lg:mt-0">
@@ -405,12 +387,22 @@ const EcommerceItem = () => {
                               <p className="py-1 text-sm lg:text-base font-lato text-[#9295AA] font-normal mt-2">
                                 {item.description}
                               </p>
-                              <button
-                                onClick={() => handleAddToCart(item)}
-                                className="w-full rounded-lg bg-secondCommon mt-5 py-2 lg:py-3 px-6 font-josefin text-white font-bold text-sm lg:text-base hover:bg-opacity-90 transition-all"
-                              >
-                                Add to Cart
-                              </button>
+                              <div className="">
+                                    <ul className="flex gap-2">
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FiShoppingCart
+                                          onClick={() => handleAddToCart(item)}
+                                          className="text-[#1389FF] hover:text-[#00009D]"
+                                        />
+                                      </li>
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                      <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                    </ul>
+                                  </div>
                               <ToastContainer
                                 position="top-center"
                                 autoClose={500}
@@ -435,27 +427,13 @@ const EcommerceItem = () => {
                             >
                               <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-full lg:w-[38%] h-[180px] lg:h-[220px] overflow-hidden">
                                 <div>
-                                  <img
-                                    src={item.thumbnail}
-                                    alt={item.title}
-                                    className="h-[150px] lg:h-[170px] w-auto"
-                                  />
-                                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 lg:bottom-6 lg:-left-16 group-hover:left-4 duration-700 ease-in-out">
-                                    <ul className="flex gap-2 lg:block">
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FiShoppingCart
-                                          onClick={() => handleAddToCart(item)}
-                                          className="text-[#1389FF] hover:text-[#00009D]"
-                                        />
-                                      </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                    </ul>
-                                  </div>
+                                <Link to={`/ShopList/${item.id}`}>
+                              <img
+                                src={item.thumbnail}
+                                alt={item.title}
+                                className={`h-[150px] lg:h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                                />
+                              </Link>
                                 </div>
                               </div>
                               <div className="w-full lg:w-[58%] flex flex-col mt-4 lg:mt-0">
@@ -487,12 +465,22 @@ const EcommerceItem = () => {
                                 <p className="py-1 text-sm lg:text-base font-lato text-[#9295AA] font-normal mt-2">
                                   {item.description}
                                 </p>
-                                <button
-                                  onClick={() => handleAddToCart(item)}
-                                  className="w-full rounded-lg bg-secondCommon mt-5 py-2 lg:py-3 px-6 font-josefin text-white font-bold text-sm lg:text-base hover:bg-opacity-90 transition-all"
-                                >
-                                  Add to Cart
-                                </button>
+                                <div className="">
+                                    <ul className="flex gap-2">
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FiShoppingCart
+                                          onClick={() => handleAddToCart(item)}
+                                          className="text-[#1389FF] hover:text-[#00009D]"
+                                        />
+                                      </li>
+                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                      <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
+                                      </li>
+                                    </ul>
+                                  </div>
                                 <ToastContainer
                                   position="top-center"
                                   autoClose={500}
@@ -515,27 +503,88 @@ const EcommerceItem = () => {
                 <div className="flex flex-wrap justify-between">
                   {
                     categoryItem.length > 0 ?
-                      categoryItem.map((item, index) => (
+                    categoryItem.map((item, index) => (
+                      <div
+                        key={index}
+                        className="w-full sm:w-[48%] lg:w-[32%] mb-8 group"
+                      >
+                        <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-auto h-[270px] overflow-hidden">
+                          <div>
+                            <Link to={`/ShopList/${item.id}`}>
+                            <img
+                              src={item.thumbnail}
+                              alt={item.title}
+                              className={`h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                              />
+                            </Link>
+                            <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
+                              <ul>
+                                <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                  <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                </li>
+                                <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                  <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col text-center items-center pt-2">
+                          <h3 className="text-[18px] font-josefin text-primary font-bold py-1">
+                            {item.title}
+                          </h3>
+                          <div className="flex justify-center gap-2 py-1">
+                            <span className="w-[10px] h-[10px] bg-[#DE9034] rounded-full"></span>
+                            <span className="w-[10px] h-[10px] bg-secondCommon rounded-full"></span>
+                            <span className="w-[10px] h-[10px] bg-[#00009D] rounded-full"></span>
+                          </div>
+                          <p className="py-1 text-base font-josefin text-primary font-semibold">
+                            ${item.price}
+                            <span className="text-xs text-[#FB2448] line-through ml-2">
+                              ${item.discountPercentage}
+                            </span>
+                          </p>
+                          <button onClick={() => handleAddToCart(item)} className="w-full rounded-lg bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
+                            Add to Cart
+                          </button>
+                          <ToastContainer
+                            position="top-center"
+                            autoClose={500}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick={false}
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="dark"
+                            transition={Bounce}
+                          />
+                        </div>
+                      </div>
+                    ))
+                      :
+                      brandItem.length > 0 ?
+                      brandItem.map((item, index) => (
                         <div
                           key={index}
                           className="w-full sm:w-[48%] lg:w-[32%] mb-8 group"
                         >
                           <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-auto h-[270px] overflow-hidden">
                             <div>
+                              <Link to={`/ShopList/${item.id}`}>
                               <img
                                 src={item.thumbnail}
                                 alt={item.title}
-                                className="h-[170px] w-auto"
-                              />
+                                className={`h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                                />
+                              </Link>
                               <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                 <ul>
                                   <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                    <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
-                                  </li>
-                                  <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                     <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
                                   </li>
-                                  <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                  <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                     <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
                                   </li>
                                 </ul>
@@ -554,7 +603,7 @@ const EcommerceItem = () => {
                             <p className="py-1 text-base font-josefin text-primary font-semibold">
                               ${item.price}
                               <span className="text-xs text-[#FB2448] line-through ml-2">
-                                ${item.price * 2}
+                                ${item.discountPercentage}
                               </span>
                             </p>
                             <button onClick={() => handleAddToCart(item)} className="w-full rounded-lg bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
@@ -576,29 +625,28 @@ const EcommerceItem = () => {
                           </div>
                         </div>
                       ))
-                      :
-                      brandItem.length > 0 ?
-                        brandItem.map((item, index) => (
+                        :
+                        priceItem.length > 0 ?
+                        priceItem.map((item, index) => (
                           <div
                             key={index}
                             className="w-full sm:w-[48%] lg:w-[32%] mb-8 group"
                           >
                             <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-auto h-[270px] overflow-hidden">
                               <div>
+                                <Link to={`/ShopList/${item.id}`}>
                                 <img
                                   src={item.thumbnail}
                                   alt={item.title}
-                                  className="h-[170px] w-auto"
-                                />
+                                  className={`h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                                  />
+                                </Link>
                                 <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                   <ul>
                                     <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                      <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
-                                    </li>
-                                    <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                       <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
                                     </li>
-                                    <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                    <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                       <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
                                     </li>
                                   </ul>
@@ -617,7 +665,7 @@ const EcommerceItem = () => {
                               <p className="py-1 text-base font-josefin text-primary font-semibold">
                                 ${item.price}
                                 <span className="text-xs text-[#FB2448] line-through ml-2">
-                                  ${item.price * 2}
+                                  ${item.discountPercentage}
                                 </span>
                               </p>
                               <button onClick={() => handleAddToCart(item)} className="w-full rounded-lg bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
@@ -639,69 +687,6 @@ const EcommerceItem = () => {
                             </div>
                           </div>
                         ))
-                        :
-                        priceItem.length > 0 ?
-                          priceItem.map((item, index) => (
-                            <div
-                              key={index}
-                              className="w-full sm:w-[48%] lg:w-[32%] mb-8 group"
-                            >
-                              <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-auto h-[270px] overflow-hidden">
-                                <div>
-                                  <img
-                                    src={item.thumbnail}
-                                    alt={item.title}
-                                    className="h-[170px] w-auto"
-                                  />
-                                  <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
-                                    <ul>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="flex flex-col text-center items-center pt-2">
-                                <h3 className="text-[18px] font-josefin text-primary font-bold py-1">
-                                  {item.title}
-                                </h3>
-                                <div className="flex justify-center gap-2 py-1">
-                                  <span className="w-[10px] h-[10px] bg-[#DE9034] rounded-full"></span>
-                                  <span className="w-[10px] h-[10px] bg-secondCommon rounded-full"></span>
-                                  <span className="w-[10px] h-[10px] bg-[#00009D] rounded-full"></span>
-                                </div>
-                                <p className="py-1 text-base font-josefin text-primary font-semibold">
-                                  ${item.price}
-                                  <span className="text-xs text-[#FB2448] line-through ml-2">
-                                    ${item.price * 2}
-                                  </span>
-                                </p>
-                                <button onClick={() => handleAddToCart(item)} className="w-full rounded-lg bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
-                                  Add to Cart
-                                </button>
-                                <ToastContainer
-                                  position="top-center"
-                                  autoClose={500}
-                                  hideProgressBar={false}
-                                  newestOnTop={false}
-                                  closeOnClick={false}
-                                  rtl={false}
-                                  pauseOnFocusLoss
-                                  draggable
-                                  pauseOnHover
-                                  theme="dark"
-                                  transition={Bounce}
-                                />
-                              </div>
-                            </div>
-                          ))
                           :
                           perPageProduct.map((item, index) => (
                             <div
@@ -710,20 +695,19 @@ const EcommerceItem = () => {
                             >
                               <div className="bg-[#F6F7FB] group-hover:bg-[#EBF4F3] flex justify-center items-center p-4 relative w-auto h-[270px] overflow-hidden">
                                 <div>
+                                  <Link to={`/ShopList/${item.id}`}>
                                   <img
                                     src={item.thumbnail}
                                     alt={item.title}
-                                    className="h-[170px] w-auto"
-                                  />
+                                    className={`h-[170px] w-auto ${itemZoom === index ? "scale-150" : ""}`}
+                                    />
+                                    </Link>
                                   <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                     <ul>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
-                                      </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
-                                      <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
+                                      <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                     </ul>
@@ -742,7 +726,7 @@ const EcommerceItem = () => {
                                 <p className="py-1 text-base font-josefin text-primary font-semibold">
                                   ${item.price}
                                   <span className="text-xs text-[#FB2448] line-through ml-2">
-                                    ${item.price * 2}
+                                    ${item.discountPercentage}
                                   </span>
                                 </p>
                                 <button onClick={() => handleAddToCart(item)} className="w-full rounded-lg bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">

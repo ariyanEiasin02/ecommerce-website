@@ -17,7 +17,7 @@ const Card = ({ imageMix, title, categoryName, fixedNow, fixedOld, handleAddToCa
         <div className="">
           <img src={imageMix} alt={title} className={`h-[170px] w-auto ${isZoomed ? "scale-150" : ""}`} />
           <div className="flex justify-center absolute -bottom-20 left-1/2 -translate-x-1/2 group-hover:bottom-4 duration-700 ease-in-out">
-            <Link to={`Home/ShopList/${productName}`}>
+            <Link to={`/ShopList/${productName}`}>
               <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
                 View Details
               </button>

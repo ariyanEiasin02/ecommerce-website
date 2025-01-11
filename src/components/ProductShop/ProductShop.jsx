@@ -135,12 +135,7 @@ const ProductShop = () => {
                                         </Link>
                                     </div>
                             }
-                            <div className="mt-5 flex justify-between">
-                                <div className="">
-                                    <button className="bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all">
-                                        Update Curt
-                                    </button>
-                                </div>
+                            <div className="mt-5 flex justify-end">
                                 {
                                     cartData.length > 0 &&
                                     <div className="relative">

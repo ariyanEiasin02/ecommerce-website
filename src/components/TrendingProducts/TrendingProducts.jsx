@@ -22,7 +22,7 @@ const TrendingProducts = () => {
           {dataInfo.map((item) => (
             <div key={item.id} className="w-full sm:w-[48%] lg:w-[24%]">
               <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border p-4 group">
-                <Link to={`Home/ShopList/${item.id}`}>
+                <Link to={`/ShopList/${item.id}`}>
                 <div className="bg-[#F6F7FB] group-hover:bg-[#F7F7F7] p-4">
                   <img
                     src={item.thumbnail}
@@ -69,7 +69,7 @@ const TrendingProducts = () => {
             <h2 className="font-josefin font-semibold text-xl md:text-2xl text-primary">
               23% off in all products
             </h2>
-            <Link to="/Home/ShopGrid">
+            <Link to="/ShopGrid">
             <button className="font-lato font-semibold text-secondCommon underline text-base">
               View Collection
             </button>
@@ -84,7 +84,7 @@ const TrendingProducts = () => {
                 key={item.id}
                 className="flex items-center gap-x-5 mb-3 bg-white rounded-lg shadow p-3"
               >
-                <Link to={`Home/ShopList/${item.id}`}>
+                <Link to={`/ShopList/${item.id}`}>
                 <div className="bg-[#F5F6F8] p-3 rounded">
                   <img
                     className="h-[71px] w-auto"

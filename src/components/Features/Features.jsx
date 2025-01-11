@@ -77,7 +77,7 @@ const Features = () => {
                                             alt="Product"
                                         />
                                         <div className="flex justify-center absolute -bottom-16 left-1/2 -translate-x-1/2 group-hover:bottom-5 duration-700 ease-in-out">
-                                            <Link to={`Home/ShopList/${item.id}`}>
+                                            <Link to={`/ShopList/${item.id}`}>
                                                 <button className="bg-[#08D15F] rounded-md py-3 px-6 font-josefin text-white font-bold text-xs">
                                                     View Details
                                                 </button>
