@@ -26,6 +26,7 @@ import OderCompeletPages from './pages/OderCompeletPages/OderCompeletPages';
 import BlogPages from './pages/BlogPages/BlogPages';
 import SimpleBlogPages from './pages/SimpleBlogPages/SimpleBlogPages';
 import AboutPages from './pages/AboutPages/AboutPages';
+import WishlistPages from './pages/WishlistPages/WishlistPages';
 
 function App() {
   
@@ -45,6 +46,7 @@ function App() {
         <Route path="/Home/shop/*" element={<Shop />} />
         <Route path="/Home/ShopGrid/*" element={<ShopGrid />} />
         <Route path="/ShopList/:id*" element={<ShopList />} />
+        <Route path="/Wishlist/*" element={<WishlistPages/>} />
         <Route path="/Home/CheckOut/:id*" element={<CheckOutPages/>} />
         <Route path="/Home/OderCompelet/*" element={<OderCompeletPages/>} />
         <Route path="/Home/Contact/*" element={<Contact />} />

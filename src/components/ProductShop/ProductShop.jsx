@@ -15,9 +15,9 @@ const ProductShop = () => {
     const handleDeleteShow = (id) => {
         if (handleDelete === id) {
             setHandleDelete(null);
-          } else {
+        } else {
             setHandleDelete(id);
-          }
+        }
     }
     const hendleClearCartShow = () => {
         setHandleClear(!handleClear)
@@ -41,7 +41,7 @@ const ProductShop = () => {
         acc.totalQuantity += current.qty;
         return acc
     }, { totalPrice: 0, totalQuantity: 0 })
-    
+
     return (
         <>
             <section className='py-16 bg-white'>
@@ -188,11 +188,11 @@ const ProductShop = () => {
                                         Shipping & taxes calculated at checkout.
                                     </p>
                                     <Link to="/Home/CheckOut/:id">
-                                    <button
-                                        className="font-lato text-base w-full px-4 py-2 bg-[#19D16F] text-white font-medium text-center rounded-md hover:opacity-80 transition"
-                                    >
-                                        Proceed To Checkout
-                                    </button>
+                                        <button
+                                            className="font-lato text-base w-full px-4 py-2 bg-[#19D16F] text-white font-medium text-center rounded-md hover:opacity-80 transition"
+                                        >
+                                            Proceed To Checkout
+                                        </button>
                                     </Link>
                                 </div>
                             </div>

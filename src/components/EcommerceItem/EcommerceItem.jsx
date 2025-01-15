@@ -6,7 +6,7 @@ import { apiData } from "../ContextApi/ContextApi";
 import ShortItem from "../ShortItem/ShortItem";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../slice/cartSlice";
+import { addToCart, addToWishlist } from "../slice/cartSlice";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { IoStar } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -84,6 +84,10 @@ const EcommerceItem = () => {
   const handleAddToCart = (product) => {
     dispatch(addToCart({ ...product, qty: 1 }))
     toast.success("Add to Cart Success!")
+  }
+  const handleAddToWishlist = (product) => {
+    dispatch(addToWishlist({ ...product, qty: 1 }))
+    toast.success("Add to Wishlist Success!")
   }
 
   const handleShopMenu = () => {
@@ -237,7 +241,9 @@ const EcommerceItem = () => {
                                         />
                                       </li>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                        <FaRegHeart
+                                        onClick={()=> handleAddToWishlist(item)}
+                                        className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                       <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -317,7 +323,9 @@ const EcommerceItem = () => {
                                         />
                                       </li>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                        <FaRegHeart 
+                                        onClick={()=> handleAddToWishlist(item)}
+                                        className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                       <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -396,7 +404,9 @@ const EcommerceItem = () => {
                                         />
                                       </li>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                        <FaRegHeart 
+                                        onClick={()=> handleAddToWishlist(item)}
+                                        className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                       <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -474,7 +484,9 @@ const EcommerceItem = () => {
                                         />
                                       </li>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                        <FaRegHeart 
+                                        onClick={()=> handleAddToWishlist(item)}
+                                        className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                       <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -520,7 +532,7 @@ const EcommerceItem = () => {
                             <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                               <ul>
                                 <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                  <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                  <FaRegHeart onClick={()=> handleAddToWishlist(item)} className="text-[#1389FF] hover:text-[#00009D]" />
                                 </li>
                                 <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                   <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -582,7 +594,7 @@ const EcommerceItem = () => {
                               <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                 <ul>
                                   <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                    <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                    <FaRegHeart onClick={()=> handleAddToWishlist(item)} className="text-[#1389FF] hover:text-[#00009D]" />
                                   </li>
                                   <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                     <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -644,7 +656,7 @@ const EcommerceItem = () => {
                                 <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                   <ul>
                                     <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                      <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                      <FaRegHeart onClick={()=> handleAddToWishlist(item)} className="text-[#1389FF] hover:text-[#00009D]" />
                                     </li>
                                     <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                       <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />
@@ -705,7 +717,9 @@ const EcommerceItem = () => {
                                   <div className="absolute bottom-6 -left-16 group-hover:left-4 duration-700 ease-in-out">
                                     <ul>
                                       <li className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                                        <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                                        <FaRegHeart 
+                                        onClick={()=> handleAddToWishlist(item)}
+                                        className="text-[#1389FF] hover:text-[#00009D]" />
                                       </li>
                                       <li onClick={() => handleZoomCart(index)} className="my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                                         <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />

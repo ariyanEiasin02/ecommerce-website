@@ -41,10 +41,12 @@ const Header = () => {
             <span>Login</span>
           </button>
           </Link>
+          <Link to="/Wishlist/">
           <button className="flex items-center text-sm text-[#F1F1F1] font-josefin font-semibold">
             <FaHeart className="mr-1" />
             <span>Wishlist</span>
           </button>
+          </Link>
           <Link to="/Home/shop/">
           <button className="relative flex text-sm items-center text-[#F1F1F1] font-josefin font-semibold">
             <FaShoppingCart className="mr-1" />
