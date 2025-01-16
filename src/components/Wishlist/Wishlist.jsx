@@ -47,8 +47,10 @@ const Wishlist = () => {
                   />
 
                   <div className="flex-1">
-                    <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
-                    <p className="text-gray-500 text-lg">$120.00</p>
+                    <h2 className="text-[#000000] font-josefin text-xl font-medium mt-1">{item.title}</h2>
+                    <p className="text-sm text-[#A1A8C1] font-josefin font-normal mt-1">Tags: {item.tags}</p>
+                    <p className="text-sm text-[#A1A8C1] font-josefin font-normal mt-1">Category: {item.category}</p>
+                    <p className="text-base text-primary font-josefin font-normal mt-1">${item.price}</p>
                   </div>
 
                   <div className="flex space-x-4">

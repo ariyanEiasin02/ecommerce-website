@@ -9,7 +9,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { apiData } from "../ContextApi/ContextApi";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../slice/cartSlice";
+import { addToCart, addToWishlist } from "../slice/cartSlice";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 const ProductCart = () => {
@@ -80,6 +80,11 @@ const ProductCart = () => {
     setItemZoom((prevIndex) => (prevIndex === index ? null : index))
   }
 
+  const handleAddToWishlist = (product) => {
+      dispatch(addToWishlist({ ...product, qty: 1 }))
+      toast.success("Add to Wishlist Success!")
+    }
+
   return (
     <section className="py-12 overflow-hidden">
       <div className="max-w-container mx-auto">
@@ -112,7 +117,7 @@ const ProductCart = () => {
                       <FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
                     <div className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
-                      <FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" />
+                      <FaRegHeart onClick={()=> handleAddToWishlist(product)} className="text-[#1389FF] hover:text-[#00009D]" />
                     </div>
                     <div onClick={() => handleZoomCart(index)} className="w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center">
                       <ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" />

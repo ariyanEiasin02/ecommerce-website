@@ -4,7 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi'
 import { ImZoomIn } from 'react-icons/im'
 import sale from '../../assets/sale.png'
 import { Link } from 'react-router-dom'
-const Card = ({ imageMix, title, categoryName, fixedNow, fixedOld, handleAddToCart,productName}) => {
+const Card = ({ imageMix, title, categoryName, fixedNow, fixedOld, handleAddToCart,productName,handleAddToWishlist}) => {
   const [isZoomed, setIsZoomed] = useState(false);
   const handleZoomCart = () => {
     setIsZoomed(!isZoomed);
@@ -26,7 +26,7 @@ const Card = ({ imageMix, title, categoryName, fixedNow, fixedOld, handleAddToCa
           <div className="absolute bottom-6 left-4 opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
             <ul>
               <li onClick={handleAddToCart} className='my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center'><FiShoppingCart className="text-[#1389FF] hover:text-[#00009D]" /></li>
-              <li className='my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center'><FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" /></li>
+              <li onClick={handleAddToWishlist} className='my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center'><FaRegHeart className="text-[#1389FF] hover:text-[#00009D]" /></li>
               <li onClick={handleZoomCart} className='my-1 w-[30px] h-[30px] rounded-full bg-transparent hover:bg-[#eeeffb] flex justify-center items-center'><ImZoomIn className="text-[#1389FF] hover:text-[#00009D]" /></li>
             </ul>
           </div>

@@ -4,7 +4,7 @@ import { apiData } from "../ContextApi/ContextApi";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../slice/cartSlice";
+import { addToCart, addToWishlist } from "../slice/cartSlice";
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
 const ProductMix = () => {
@@ -19,6 +19,10 @@ const ProductMix = () => {
   const handleAddToCart = (card) => {
     dispatch(addToCart({ ...card, qty: 1 }))
     toast.success("Add to Cart Success!")
+  }
+  const handleAddToWishlist = (product) => {
+    dispatch(addToWishlist({ ...product, qty: 1 }))
+    toast.success("Add to Wishlist Success!")
   }
   return (
     <section className="py-12">
@@ -69,6 +73,7 @@ const ProductMix = () => {
                   fixedOld={card.discountPercentage}
                   productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
+                  handleAddToWishlist={() => handleAddToWishlist(card)}
                 />
               ))}
             </div>
@@ -85,6 +90,7 @@ const ProductMix = () => {
                   fixedOld={card.discountPercentage}
                   productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
+                  handleAddToWishlist={() => handleAddToWishlist(card)}
                 />
               ))}
             </div>
@@ -101,6 +107,7 @@ const ProductMix = () => {
                   fixedOld={card.discountPercentage}
                   productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
+                  handleAddToWishlist={() => handleAddToWishlist(card)}
                 />
               ))}
             </div>
@@ -117,6 +124,7 @@ const ProductMix = () => {
                   fixedOld={card.discountPercentage}
                   productName={card.id}
                   handleAddToCart={() => handleAddToCart(card)}
+                  handleAddToWishlist={() => handleAddToWishlist(card)}
                 />
               ))}
             </div>
