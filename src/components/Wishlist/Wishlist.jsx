@@ -34,27 +34,31 @@ const Wishlist = () => {
   }
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-container mx-auto">
+      <div className="max-w-container mx-auto px-4 md:px-0">
         {
           cartData.length > 0 ?
             cartData.map((item, index) => (
               <div key={index} className="w-[90%] lg:w-[80%] mx-auto space-y-6 mt-5">
-                <div className="bg-white w-full rounded-lg shadow-md py-2 px-4 flex items-center space-x-6">
-                  <img
+                <div className="bg-white w-full rounded-lg shadow-md py-4 px-4 md:flex justify-between items-center md:space-x-6">
+                  <div className="md:flex">
+                 <div className="">
+                 <img
                     src={item.thumbnail}
                     alt="Product"
                     className="w-28 h-28 border-2 rounded-lg object-cover"
                   />
+                 </div>
 
-                  <div className="flex-1">
+                  <div className="md:ml-4 mt-4 md:mt-0">
                     <h2 className="text-[#000000] font-josefin text-xl font-medium mt-1">{item.title}</h2>
                     <p className="text-sm text-[#A1A8C1] font-josefin font-normal mt-1">Tags: {item.tags}</p>
                     <p className="text-sm text-[#A1A8C1] font-josefin font-normal mt-1">Category: {item.category}</p>
                     <p className="text-base text-primary font-josefin font-normal mt-1">${item.price}</p>
                   </div>
+                  </div>
 
-                  <div className="flex space-x-4">
-                    <button onClick={() => handleAddToCart(item)} className="px-5 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 transition">
+                  <div className="flex space-x-4 mt-5 md:mt-0">
+                    <button onClick={() => handleAddToCart(item)} className="md:px-5 px-3 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 transition">
                       Add to Cart
                     </button>
                     <ToastContainer
@@ -71,7 +75,7 @@ const Wishlist = () => {
                       transition={Bounce}
                     />
                     <div className="relative">
-                    <button onClick={() => handleDeleteShow(item.id)} className="px-5 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+                    <button onClick={() => handleDeleteShow(item.id)} className="md:px-5 px-3 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
                       Remove
                     </button>
                     {

@@ -46,7 +46,7 @@ const Header = () => {
           <button className="relative flex items-center text-sm text-[#F1F1F1] font-josefin font-semibold">
             <FaHeart className="mr-1" />
             <span>Wishlist</span>
-            <p className='absolute -top-2 left-2 text-white text-[14px] font-josefin w-5 h-5 bg-secondCommon rounded-full font-bold flex justify-center items-center'>{wishlistData.length}</p>
+            <p className='absolute -top-2 left-2 text-white text-[14px] font-josefin w-5 h-5 bg-primary rounded-full font-bold flex justify-center items-center'>{wishlistData.length}</p>
           </button>
           </Link>
           <Link to="/Home/shop/">

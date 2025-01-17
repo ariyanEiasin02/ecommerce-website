@@ -1,5 +1,6 @@
 import React from 'react';
 import aboutBanner from '../../assets/aboutBanner.png';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -28,7 +29,9 @@ const About = () => {
                 vitae lobortis quis bibendum quam.
               </p>
               <button className="bg-secondCommon py-3 px-6 font-josefin text-white rounded-lg font-bold text-sm sm:text-base hover:bg-opacity-90 transition-all mt-5">
+                <Link to="/Home/Contact/">  
                 Contact us
+                </Link>
               </button>
             </div>
           </div>

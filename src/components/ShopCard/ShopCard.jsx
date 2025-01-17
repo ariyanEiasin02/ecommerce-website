@@ -8,7 +8,7 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { useParams } from 'react-router-dom';
 import { apiData } from '../ContextApi/ContextApi';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../slice/cartSlice';
+import { addToCart, addToWishlist } from '../slice/cartSlice';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
@@ -28,6 +28,10 @@ const ShopCard = () => {
         dispatch(addToCart({ ...product, qty: 1 }))
         toast.success("Add to Cart Success!")
     }
+    const handleAddToWishlist = (product) => {
+        dispatch(addToWishlist({ ...product, qty: 1 }))
+        toast.success("Add to Wishlist Success!")
+      }
     return (
         <section className='py-16'>
             <div className="max-w-container mx-auto">
@@ -96,9 +100,14 @@ const ShopCard = () => {
                                 <p className='font-josefin text-[18px] font-medium text-primary mt-2'>${item.price}<span className='text-secondCommon pl-2 line-through text-sm'>${item.discountPercentage}</span> </p>
                                 <p className='font-josefin font-semibold text-[18px] text-primary mt-2'>Color</p>
                                 <p className='font-lato font-normal text-base text-[#A9ACC6] w-[80%]'>{item.description}</p>
+                                <div className="flex gap-5">
                                 <button onClick={() => handleAddToCart(item)} className="bg-secondCommon mt-5 py-3 px-8 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all rounded-md mb-2">
                                     Add To Cart
                                 </button>
+                                <button onClick={() => handleAddToWishlist(item)} className="bg-primary mt-5 py-3 px-8 font-josefin text-white font-bold text-base hover:bg-opacity-90 transition-all rounded-md mb-2">
+                                    Add To Wishlist
+                                </button>
+                                </div>
                                 <p className='font-josefin font-semibold text-primary text-[18px] py-1'>Categories : <span className='text-base text-[#A9ACC6]'>{item.category}</span></p>
                                 <p className='font-josefin font-semibold text-primary text-[18px] py-1'>Tags : <span className='text-base text-[#A9ACC6]'>{item.tags}</span></p>
                                 <div className="flex gap-2 items-center">

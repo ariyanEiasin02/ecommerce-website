@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     const cartData = useSelector((state) => state.cartSlice.cartItems)
+    const wishlistData = useSelector((state) => state.cartSlice.wishlistItems)
     const [menuShow, setMenuShow] = useState(false);
     const mainData = useContext(apiData)
 
@@ -165,10 +166,13 @@ const Navbar = () => {
                                     <span>Login</span>
                                 </button>
                             </Link>
-                            <button className="flex items-center text-[18px] text-[#333] font-josefin font-semibold hover:text-secondCommon">
+                            <Link to="/Wishlist/">
+                            <button className="relative flex items-center text-[18px] text-[#333] font-josefin font-semibold hover:text-secondCommon">
                                 <FaHeart className="mr-1" />
                                 <span>Wishlist</span>
+                                <p className='absolute -top-2 left-2 text-white text-[14px] font-josefin w-5 h-5 bg-primary rounded-full font-bold flex justify-center items-center'>{wishlistData.length}</p>
                             </button>
+                            </Link>
                             <Link to="/Home/shop/">
                                 <button className="relative flex items-center text-[18px] text-[#333] font-josefin font-semibold hover:text-secondCommon">
                                     <FaShoppingCart className="mr-1" />
