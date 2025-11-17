@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       maxWidth:{
-        'container' : '1170px'
+        'container' : '1440px'
       },
       fontFamily:{
         'lato' : ["Lato", "sans-serif"],
