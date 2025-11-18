@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Banner = () => {
   return (
-    <section className="bg-[#F2F0FF] py-12 md:py-20 relative">
+    <section className="bg-[#F2F0FF] py-12 md:py-24 relative">
       <div className="max-w-container mx-auto px-4 md:px-0">
         
         <div className="flex flex-col-reverse md:flex-row items-center gap-10">
