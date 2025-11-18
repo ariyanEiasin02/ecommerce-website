@@ -10,6 +10,10 @@ import Categories from '../../components/Categories/Categories'
 import NewsLatter from '../../components/NewsLatter/NewsLatter'
 import LeatestBlog from '../../components/LeatestBlog/LeatestBlog'
 
+const metadata = {
+  title: "Eiasin - Home",
+  description: "Welcome to Eiasin, your one-stop shop for all your e-commerce needs. Discover a wide range of products, exclusive deals, and seamless shopping experience.",
+};
 const Home = () => {
   return (
     <>
