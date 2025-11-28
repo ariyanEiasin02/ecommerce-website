@@ -1,63 +1,80 @@
-import React from 'react';
-import touch from '../../assets/touch.png';
+import React from "react";
+import touch from "../../assets/touch.png";
 
 const Touch = () => {
   return (
-    <div className="py-16 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-container mx-auto px-4">
-        <div className="flex flex-wrap md:flex-row flex-col-reverse justify-between items-center">
-          <div className="w-full md:w-2/4 px-4 mb-8 md:mb-0">
-            <h2 className="font-bold text-3xl font-josefin text-primary md:mt-0 mt-4">
+
+        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-12">
+
+          {/* Left Form Section */}
+          <div className="w-full md:w-1/2">
+            <h2 className="font-josefin font-bold text-3xl md:text-4xl text-primary">
               Get In Touch
-            </h2>
-            <p className="font-lato font-semibold text-base text-[#8A8FB9] my-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis
-              neque ultrices tristique amet erat vitae eget dolor lobortis quis
-              bibendum quam.
+              </h2>
+
+            <p className="mt-4 font-lato text-base text-[#8A8FB9] leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
+              ultrices tristique amet erat vitae eget dolor lobortis quis bibendum
+              quam.
             </p>
-            <form className="mt-6 space-y-6">
+
+            <form className="mt-8 space-y-6">
+
+              {/* Name + Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
-                  className="border-2 border-[#8A8FB9] w-full py-3 px-4 outline-none rounded-md font-lato font-semibold text-[#8A8FB9]"
                   type="text"
                   placeholder="Your Name*"
+                  className="border border-[#D4D7E5] w-full py-3 px-4 rounded-sm font-lato text-[#5A5F7D] focus:ring-1 outline-none focus:ring-secondCommon focus:border-transparent transition-all"
                 />
                 <input
-                  className="border-2 border-[#8A8FB9] w-full py-3 px-4 outline-none rounded-md font-lato font-semibold text-[#8A8FB9]"
                   type="email"
-                  placeholder="Your E-mail*"
+                  placeholder="Your Email*"
                   required
+                  className="border border-[#D4D7E5] w-full py-3 px-4 rounded-sm font-lato text-[#5A5F7D] focus:ring-1 outline-none focus:ring-secondCommon focus:border-transparent transition-all"
                 />
               </div>
+
+              {/* Subject */}
               <input
-                className="border-2 border-[#8A8FB9] w-full py-3 px-4 outline-none rounded-md font-lato font-semibold text-[#8A8FB9]"
                 type="text"
                 placeholder="Subject*"
                 required
+                className="border border-[#D4D7E5] outline-none w-full py-3 px-4 rounded-sm font-lato text-[#5A5F7D] focus:ring-1 focus:ring-secondCommon focus:border-transparent transition-all"
               />
+
+              {/* Message */}
               <textarea
-                className="border-2 border-[#8A8FB9] w-full py-3 px-4 outline-none rounded-md font-lato font-semibold text-[#8A8FB9] h-32"
                 placeholder="Text Your Message*"
                 required
+                className="border border-[#D4D7E5] outline-none w-full py-3 px-4 rounded-sm h-32 font-lato text-[#5A5F7D] resize-none focus:ring-1 focus:ring-secondCommon focus:border-transparent transition-all"
               ></textarea>
+
+              {/* Button */}
               <button
                 type="submit"
-                className="bg-secondCommon mt-5 py-3 px-6 font-josefin text-white font-bold rounded-lg text-base hover:bg-opacity-90 transition-all"
+                className="bg-secondCommon text-white font-josefin font-medium py-3 px-8 rounded-sm text-base shadow-sm hover:bg-opacity-90 transition-all"
               >
                 Send Mail
               </button>
+
             </form>
           </div>
-          <div className="w-full md:w-2/4 px-4 flex justify-center">
+
+          {/* Right Image Section */}
+          <div className="w-full md:w-1/2 flex justify-center">
             <img
               src={touch}
-              alt="Contact Us"
-              className="w-full max-w-sm md:max-w-full object-contain"
+              alt="Contact"
+              className="w-full max-w-md object-contain"
             />
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
