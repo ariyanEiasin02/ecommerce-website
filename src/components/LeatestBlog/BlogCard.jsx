@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
   return (
-    <div className="group bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="group bg-white shadow-lg rounded-[8px] overflow-hidden">
       <div className="overflow-hidden">
         <img
           src={blog.img}
