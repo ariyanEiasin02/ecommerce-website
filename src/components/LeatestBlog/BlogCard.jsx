@@ -9,7 +9,7 @@ const BlogCard = ({ blog }) => {
         <img
           src={blog.img}
           alt={blog.title}
-          className="w-full h-[260px] object-cover group-hover:scale-125 duration-700"
+          className="w-full h-[260px] object-cover hover:scale-110 duration-700"
         />
       </div>
       <div className="p-6">
@@ -27,14 +27,14 @@ const BlogCard = ({ blog }) => {
             </span>
           </div>
         </div>
-        <h3 className="text-[18px] truncate font-josefin font-semibold text-primary group-hover:text-secondCommon duration-700 mt-4">
+        <h3 className="text-[18px] truncate font-josefin font-semibold text-primary group-hover:text-secondCommon duration-700 mt-3">
           {blog.title}
         </h3>
-        <p className="font-lato line-clamp-2 text-base text-[#72718F] mt-2">
+        <p className="font-lato line-clamp-2 text-base text-[#72718F] mt-3 mb-1">
           {blog.description}
         </p>
         <Link to="/Home/Blog/">
-          <button className="mt-3 text-primary group-hover:text-secondCommon duration-700 underline font-lato font-normal text-base">
+          <button className="mt-5 text-white duration-700 font-lato font-normal text-base py-2 px-4 rounded-sm border-none bg-secondCommon">
             Read More
           </button>
         </Link>
