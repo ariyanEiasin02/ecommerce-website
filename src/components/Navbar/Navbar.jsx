@@ -109,23 +109,23 @@ const Navbar = () => {
               <Link to="/">
                 <li className="hover:text-secondCommon cursor-pointer">Home</li>
               </Link>
-              <Link to="/Home/About">
+              <Link to="/About">
                 <li className="hover:text-secondCommon cursor-pointer">
                   About Us
                 </li>
               </Link>
-              <Link to="/Home/Blog">
-                <li className="hover:text-secondCommon cursor-pointer">Blog</li>
+              <Link to="/Blogs">
+                <li className="hover:text-secondCommon cursor-pointer">Blogs</li>
               </Link>
-              <Link to="/Home/ShopGrid">
+              <Link to="/ShopGrid">
                 <li className="hover:text-secondCommon cursor-pointer">Shop</li>
               </Link>
-              <Link to="/Home/Contact">
+              <Link to="/Contact">
                 <li className="hover:text-secondCommon cursor-pointer">
                   Contact
                 </li>
               </Link>
-              <Link to="/Home/Faq/">
+              <Link to="/Faq/">
                 <li className="hover:text-secondCommon cursor-pointer">FAQ</li>
               </Link>
             </ul>
@@ -211,19 +211,19 @@ const Navbar = () => {
               <Link to="/">
                 <li>Home</li>
               </Link>
-              <Link to="/Home/About">
+              <Link to="/About">
                 <li>About Us</li>
               </Link>
-              <Link to="/Home/Blog">
+              <Link to="/Blogs">
                 <li>Blog</li>
               </Link>
-              <Link to="/Home/ShopGrid">
+              <Link to="/ShopGrid">
                 <li>Shop</li>
               </Link>
-              <Link to="/Home/Contact">
+              <Link to="/Contact">
                 <li>Contact</li>
               </Link>
-              <Link to="/Home/Faq/">
+              <Link to="/Faq">
                 <li>FAQ</li>
               </Link>
             </ul>
@@ -312,7 +312,7 @@ const Navbar = () => {
                 </button>
               </Link>
 
-              <Link to="/Home/shop/">
+              <Link to="/Shop/">
                 <button className="relative flex items-center text-[18px] font-semibold">
                   <FaShoppingCart className="mr-1" />
                   Shop

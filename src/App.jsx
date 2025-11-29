@@ -40,17 +40,17 @@ function App() {
         <Route path="/Login" element={<LoginPages/>} />
         <Route path="/Registration/*" element={<RegistrationPages/>} />
         <Route path="/ForgotPassword/*" element={<ForgotPages/>} />
-        <Route path="/Home/About*" element={<AboutPages/>} />
-        <Route path="/Home/Blog/*" element={<BlogPages/>} />
-        <Route path="/Home/Blog/Simple/*" element={<SimpleBlogPages/>} />
-        <Route path="/Home/shop/*" element={<Shop />} />
-        <Route path="/Home/ShopGrid/*" element={<ShopGrid />} />
+        <Route path="/About*" element={<AboutPages/>} />
+        <Route path="/Blogs/*" element={<BlogPages/>} />
+        <Route path="/Blogs/Simple/*" element={<SimpleBlogPages/>} />
+        <Route path="/Shop/*" element={<Shop />} />
+        <Route path="/ShopGrid/*" element={<ShopGrid />} />
         <Route path="/ShopList/:id*" element={<ShopList />} />
         <Route path="/Wishlist/*" element={<WishlistPages/>} />
-        <Route path="/Home/CheckOut/:id*" element={<CheckOutPages/>} />
-        <Route path="/Home/OderCompelet/*" element={<OderCompeletPages/>} />
-        <Route path="/Home/Contact/*" element={<Contact />} />
-        <Route path="/Home/Faq/*" element={<FaqPages/>} />
+        <Route path="/CheckOut/:id*" element={<CheckOutPages/>} />
+        <Route path="/OderCompelet/*" element={<OderCompeletPages/>} />
+        <Route path="/Contact/*" element={<Contact />} />
+        <Route path="/Faq/*" element={<FaqPages/>} />
         <Route path="*" element={<ErrorPages/>} />
       </Routes>
       <Footer/>
